@@ -211,13 +211,15 @@ ga('send', 'pageview');
 
         
           
+            <div class="text">指尖上的舞者.</div>
+          
             <div class="text">魔法工程师.</div>
           
-            <div class="text">追求 Work-life balance.</div>
+            <div class="text">追求 Work-Life Balance.</div>
           
-            <div class="text">喜欢撸猫，旅游, 滑雪, 看书.</div>
+            <div class="text">喜欢撸猫, 旅游, 滑雪, 看书.</div>
           
-            <div class="text">健身，にじげん，烹饪.</div>
+            <div class="text">健身, にじげん, 烹饪.</div>
           
         
 
@@ -447,5 +449,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
