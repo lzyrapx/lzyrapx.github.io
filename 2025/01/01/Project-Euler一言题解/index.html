@@ -7,23 +7,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>primitive pythagorean triples 计数拓展 | LzyRapX</title>
+  <title>Project-Euler 一言题解 | LzyRapX</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="计数," />
+    <meta name="keywords" content="project-euler," />
   
 
-  <meta name="description" content="Problem毕达哥拉斯三元组（pythagorean triples）包含有三个整数 $a$, $b$ 和 $c$，满足等式 $a^2+b^2&#x3D;c^2$。好吧。其实就是人尽皆知的勾股定理。当 $a$, $b$ 和 $c$ 互素时，这个毕达哥拉斯三元组（pythagorean triples）就是 primitive 的。令 $P(n)$ 是满足 $a &amp;lt; b &amp;lt; c \le n$ 的">
-<meta name="keywords" content="计数">
+  <meta name="description" content="来挖坑">
+<meta name="keywords" content="project-euler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="primitive pythagorean triples 计数拓展">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2019&#x2F;12&#x2F;17&#x2F;primitive-pythagorean-triples-%E8%AE%A1%E6%95%B0%E6%8B%93%E5%B1%95&#x2F;index.html">
+<meta property="og:title" content="Project-Euler 一言题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;Project-Euler%E4%B8%80%E8%A8%80%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="LzyRapX">
-<meta property="og:description" content="Problem毕达哥拉斯三元组（pythagorean triples）包含有三个整数 $a$, $b$ 和 $c$，满足等式 $a^2+b^2&#x3D;c^2$。好吧。其实就是人尽皆知的勾股定理。当 $a$, $b$ 和 $c$ 互素时，这个毕达哥拉斯三元组（pythagorean triples）就是 primitive 的。令 $P(n)$ 是满足 $a &amp;lt; b &amp;lt; c \le n$ 的">
+<meta property="og:description" content="来挖坑">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-12-18T16:13:22.682Z">
+<meta property="og:updated_time" content="2020-02-16T15:33:39.754Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -183,20 +183,20 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1"><span class="toc-text">Part 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2"><span class="toc-text">Part 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-3"><span class="toc-text">Part 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-4"><span class="toc-text">Part 4</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#来挖坑"><span class="toc-text">来挖坑</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-primitive-pythagorean-triples-计数拓展" class="article article-type-post" itemprop="blogPost">
+   <article id="post-Project-Euler一言题解" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">primitive pythagorean triples 计数拓展</h1>
+    <h1 class="post-title">Project-Euler 一言题解</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2019.12.17</span>
+        <span>2025.01.01</span>
       </span>
 
       
@@ -209,7 +209,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+    <a class="article-category-link" href="/categories/%E4%B8%9A%E4%BD%99%E7%88%B1%E5%A5%BD/">业余爱好</a>
   </span>
 
 
@@ -217,7 +217,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.lzyrapx.xyz/2019/12/17/primitive-pythagorean-triples-%E8%AE%A1%E6%95%B0%E6%8B%93%E5%B1%95/#disqus_thread" target="_blank" rel="noopener"></a>
+          <a href="http://www.lzyrapx.xyz/2025/01/01/Project-Euler%E4%B8%80%E8%A8%80%E9%A2%98%E8%A7%A3/#disqus_thread" target="_blank" rel="noopener"></a>
         </span>
       
 
@@ -234,25 +234,7 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>毕达哥拉斯三元组（pythagorean triples）包含有三个整数 $a$, $b$ 和 $c$，满足等式 $a^2+b^2=c^2$。好吧。其实就是人尽皆知的勾股定理。当 $a$, $b$ 和 $c$ 互素时，这个毕达哥拉斯三元组（pythagorean triples）就是 primitive 的。令 $P(n)$ 是满足 $a &lt; b &lt; c \le n$ 的 primitive pythagorean triple 的数目。记 $q$ 和 $p$ 互素，当且仅当 $gcd(q, p) = 1$, $gcd$ 为最大公约数。<br>(1) 求 $P(10^9)$。<br>(2) 求 $P(10^{18})$。</p>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>$P(20) = 3$，这三个分别是 $(3,4,5)$, $(5,12,13)$ 和 $(8,15,17)$.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p><strong>（1）</strong> 对于 primitive pythagorean triple，即 $a^2+b^2=c^2, a &gt; 0, b &gt; 0, c &gt; 0$，可以构造成：<br>$$\left\{\begin{aligned}a &amp;= 2mn\\b &amp;= m^2-n^2\\c &amp;= m^2+n^2\end{aligned}\right.$$<br>其中，$m &gt; n &gt; 0$，$\gcd(m,n)=1$，$m \bmod 2 \not= n \bmod 2$.</p>
-<p>可以直接对 primitive pythagorean triple 进行计数，从 $2$ 到 $\left \lfloor \sqrt{10^9} \right \rfloor$, 遍历 $m$.</p>
-<p>如果 $m$ 是偶数，计算 $ \{w | \gcd(m, w) = 1 \text{ and } 0 &lt; w &lt;= \min(\sqrt{10^9-m^2}, x - 1) \}$ 的所有元素个数 $SumA$。</p>
-<p>如果 $m$ 是奇数，计算 $\{ w | \gcd(m, w) = 1 \text{ and } 0 &lt; w &lt;= \frac{\min(\sqrt{10^9-m^2}, x - 1)}{2} \}$ 的所有元素个数 $SumB$。</p>
-<p>综上，$$\left\{\begin{aligned} P(N) &amp;= SumA + SumB\\N &amp;= 10^9\end{aligned}\right.$$</p>
-<p>答案：<strong>$P(10^9) = 159154994.$</strong></p>
-<p><strong>（2）</strong> 由 (1) 知，对于 primitive pythagorean triple，即 $a^2+b^2=c^2, a &gt; 0, b &gt; 0, c &gt; 0$，可以构造成：<br>$$\left\{\begin{aligned}a &amp;= 2mn\\b &amp;= m^2-n^2\\c &amp;= m^2+n^2\end{aligned}\right.$$<br>其中，$m &gt; n &gt; 0$，$\gcd(m,n)=1$，$m \bmod 2 \not= n \bmod 2$.</p>
-<p>令 $N = 10^{18}$, $N_{s}=\left\lfloor\sqrt{N}\right\rfloor$, $N_{s2}=\left\lfloor\sqrt{\frac{N}{2}}\right\rfloor$</p>
-<p>所以需要计算的是 $n \le \text{Min}(m-1,\left\lfloor\sqrt{N-m^2}\right\rfloor)$ 中 $m$ 与 $n$ 的互素对数。</p>
-<p>设 $f(m,r)=\sum_{d|m}\mu(d)\frac{r}{d}$ 为在 $[1, r]$ 中和 $m$ 互素的元素个数。可以将 $P(N)$ 分成四部分进行计算再合并。</p>
-<h2 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h2><p>对于 $m$ 是偶数，$2m^2 \le N$，$n \le m-1$ 的情况，因为没有偶数和 $m$ 互素，并且 $m - n$ 为奇数，所以部分和 $m$ 互素的元素个数为 $\varphi(m)$。<br>$$P_1=\sum_{m=2,even}^{N_{s2}}\varphi(m)=\sum_{d=2,even}^{N_{s2}}\frac{\mu(d)}{d}\sum_{k=1}^{\left\lfloor\frac{N_{s2}}{d}\right\rfloor}kd$$</p>
-<h2 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h2><p>对于 $m$ 是奇数，$2m^2 \le N$，$n \le m-1$ 的情况，因为 $m$ 是奇数，$n$ 肯定是偶数，所以计算的是 $[1,m]$中和 $m$ 互素的偶数的个数，因此也只需要计算 $[1,\frac{m}{2}]$ 中和 $m$ 互素的的元素个数，即 $f(m,\frac{m}{2})$.<br>$$P_2=\sum_{m=3,odd}^{N_{s2}}\sum_{d|m}\mu(d)\frac{n/2}{d}=\sum_{d=1,odd}^{N_{s2}}\frac{\mu(d)}{d}\sum_{k=1}^{\left\lfloor\frac{N_{s2}}{d}\right\rfloor}\frac{kd}{2}$$</p>
-<h2 id="Part-3"><a href="#Part-3" class="headerlink" title="Part 3"></a>Part 3</h2><p>对于 $m$ 是偶数，$2m^2 &gt; N$ 的情况，因为 $n \le \left\lfloor\sqrt{N-m^2}\right\rfloor$，对于特定 $m$，在范围$ [1,\left\lfloor\sqrt{N-m^2}\right\rfloor]$ 中与 $m$ 互素的元素个数为 $f(m,\left\lfloor\sqrt{N-m^2}\right\rfloor)$.<br>$$P_3=\sum_{m=N_{s2}+1,even}^{N_s}\sum_{d|m}\mu(d)\frac{\left\lfloor\sqrt{N-m^2}\right\rfloor}{d}$$<br>$$P_3=\sum_{d=1,odd}^{N_S}\mu(d)\sum_{k=(N_{s2}+1)/d,even}^{N_s/d}\frac{\left\lfloor\sqrt{N-d^2k^2}\right\rfloor}{d}+\sum_{d=2,even}^{N_S}\mu(d)\sum_{k=(N_{s2}+1)/d,odd}^{N_s/d}\frac{\left\lfloor\sqrt{N-d^2k^2}\right\rfloor}{d}$$</p>
-<h2 id="Part-4"><a href="#Part-4" class="headerlink" title="Part 4"></a>Part 4</h2><p>对于 $m$ 是奇数，$2m^2 &gt; N$ 的情况，因为 $n \le \left\lfloor\sqrt{N-m^2}\right\rfloor$，类似 <strong>Part 2</strong>，计算 $[1,\left\lfloor\sqrt{N-m^2}\right\rfloor]$ 中和 $m$ 互素的偶数的个数<strong>等价于</strong>计算 $[1,\frac{\left\lfloor\sqrt{N-m^2}\right\rfloor}{2}]$ 中和 $m$ 互素的的个数, 即 $f(m,\frac{\left\lfloor\sqrt{N-m^2}\right\rfloor}{2})$.<br>$$P_4=\sum_{m=N_{s2}+1,odd}^{N_s}\sum_{d|m}\mu(d)\frac{\left\lfloor\sqrt{N-m^2}\right\rfloor/2}{d}$$<br>$$P_4=\sum_{d=1,odd}^{N_s}\mu(d)\sum_{k=(N_{s2}+1)/d,odd}^{N_s/d}\frac{\left\lfloor\sqrt{N-d^2k^2}\right\rfloor/2}{d}$$</p>
-<p>综上，$$\left\{\begin{aligned} P(N) &amp;= P_1 + P_2 + P_3 + P_4.\\N &amp;= 10^{18}\end{aligned}\right.$$</p>
-<p>答案：<strong>$P(10^{18}) = 159154943091887752.$</strong></p>
-
+      <h2 id="来挖坑"><a href="#来挖坑" class="headerlink" title="来挖坑"></a>来挖坑</h2>
     
   </div>
 
@@ -282,10 +264,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2019/12/14/%E4%B8%9C%E4%BA%AC-%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%B0%E8%B1%A1/">
+    <a class="show pull-left" href="/2020/01/07/%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2019/12/26/2019%E7%9A%84%E9%81%97%E6%86%BE%E4%B8%8E%E5%B1%95%E6%9C%9B/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -399,7 +381,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'lzyrapx';
     
-    var disqus_url = 'http://lzyrapx.xyz/2019/12/17/primitive-pythagorean-triples-%E8%AE%A1%E6%95%B0%E6%8B%93%E5%B1%95/';
+    var disqus_url = 'http://lzyrapx.xyz/2025/01/01/Project-Euler%E4%B8%80%E8%A8%80%E9%A2%98%E8%A7%A3/';
     
     (function(){
       var dsq = document.createElement('script');
