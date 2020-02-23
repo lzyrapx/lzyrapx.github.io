@@ -7,23 +7,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>东京-北海道印象 | LzyRapX</title>
+  <title>如何证明添加最少的边使得有向图强连通？ | LzyRapX</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="旅游文化," />
+    <meta name="keywords" content="图论," />
   
 
-  <meta name="description" content="前言「你为什么都在玩」一个朋友这样对我说。 但其实我平时很勤奋的！只是「Work Hard, Play Harder」。 但严格来说，这也真的不是在「玩」。 这是一种「生活态度」。只是想多看看这个美好的世界。 其实，也可以称之为「现代浪漫的消费主义」。 印象 日本的人口密度是很高的，特别是在关东地区，但是北海道的人口密度却很低。在日本，北海道是一个地广人稀，生活恬静的地方。感觉这是一个很适合我长期">
-<meta name="keywords" content="旅游文化">
+  <meta name="description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
+<meta name="keywords" content="图论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="东京-北海道印象">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2019&#x2F;12&#x2F;14&#x2F;%E4%B8%9C%E4%BA%AC-%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%B0%E8%B1%A1&#x2F;index.html">
+<meta property="og:title" content="如何证明添加最少的边使得有向图强连通？">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;02&#x2F;23&#x2F;%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A&#x2F;index.html">
 <meta property="og:site_name" content="LzyRapX">
-<meta property="og:description" content="前言「你为什么都在玩」一个朋友这样对我说。 但其实我平时很勤奋的！只是「Work Hard, Play Harder」。 但严格来说，这也真的不是在「玩」。 这是一种「生活态度」。只是想多看看这个美好的世界。 其实，也可以称之为「现代浪漫的消费主义」。 印象 日本的人口密度是很高的，特别是在关东地区，但是北海道的人口密度却很低。在日本，北海道是一个地广人稀，生活恬静的地方。感觉这是一个很适合我长期">
+<meta property="og:description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-12-14T13:47:25.011Z">
+<meta property="og:updated_time" content="2020-02-23T13:55:20.615Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -183,20 +183,20 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#印象"><span class="toc-text">印象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#后言"><span class="toc-text">后言</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof"><span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#First-m-1"><span class="toc-text">First: $m = 1$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-1"><span class="toc-text">Case 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-2"><span class="toc-text">Case 2:</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-东京-北海道印象" class="article article-type-post" itemprop="blogPost">
+   <article id="post-如何证明添加最少的边使得有向图强连通" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">东京-北海道印象</h1>
+    <h1 class="post-title">如何证明添加最少的边使得有向图强连通？</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2019.12.14</span>
+        <span>2020.02.23</span>
       </span>
 
       
@@ -209,7 +209,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E4%B8%96%E7%95%8C/">世界</a>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
   </span>
 
 
@@ -217,7 +217,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.lzyrapx.xyz/2019/12/14/%E4%B8%9C%E4%BA%AC-%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%B0%E8%B1%A1/#disqus_thread" target="_blank" rel="noopener"></a>
+          <a href="http://www.lzyrapx.xyz/2020/02/23/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A/#disqus_thread" target="_blank" rel="noopener"></a>
         </span>
       
 
@@ -234,70 +234,19 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>「你为什么都在玩」一个朋友这样对我说。</p>
-<p>但其实我平时很勤奋的！只是「Work Hard, Play Harder」。</p>
-<p>但严格来说，这也真的不是在「玩」。</p>
-<p>这是一种「生活态度」。只是想多看看这个美好的世界。</p>
-<p>其实，也可以称之为「现代浪漫的消费主义」。</p>
-<h1 id="印象"><a href="#印象" class="headerlink" title="印象"></a>印象</h1><ul>
-<li><p>日本的人口密度是很高的，特别是在关东地区，但是北海道的人口密度却很低。在日本，北海道是一个地广人稀，生活恬静的地方。感觉这是一个很适合我长期居住的地方。</p>
-</li>
-<li><p>日本人是真的挺爱干净的，不仅仅是街道和河水，公共场所没有垃圾，垃圾桶都很少见到，就连驻在北海道支笏湖湖边的温泉度假酒店「鹤雅水之歌」，需要脱了鞋才能进酒店。爱干净程度可见一斑。</p>
-</li>
-<li><p>东京的北京烤鸭比北京的便宜，但是没有北京的好吃。</p>
-</li>
-<li><p>如果东京自由女神像后面没有彩虹桥，会给人以为是纽约自由女神像和哈德逊河的感觉。</p>
-</li>
-<li><p>无论是中国还是日本，临近圣诞节，都会给人一种圣诞节气氛。</p>
-</li>
-<li><p>浴室里放个小凳子，坐着洗澡原来这么舒服。</p>
-</li>
-<li><p>本来想约东大日本人网友 Min_25 出来的，感谢他经常回答我的数学问题，但是人家忙于科研，确实是不太好意思。遂鸽。</p>
-</li>
-<li><p>餐厅和酒店里挺多服务员都是老人，进进出出老人家总是鞠躬，搞得很不好意思。</p>
-</li>
-<li><p>大部分日本人都很热情，会努力给游客提供帮助。他们多少会一点英语，但是发音比较难懂，而且连不成句。说日语，他们会更热情。</p>
-</li>
-<li><p>路上几乎没有宝马奔驰奥迪，大部分是日系的超小型两箱轿车或小面包车。</p>
-</li>
-<li><p>北海道的牛奶和冰淇淋非常好吃。但还是更喜欢吃寿司和刺身，还有拉面。</p>
-</li>
-<li><p>支笏湖湖水真的非常清澈，而且当泡完温泉出来后喝的水其实就是支笏湖湖水。听说支笏湖湖面在气温降至零下十几度的时候依旧不冻。这个真没机会看到了。如果是二月初来，这里还会有一个「支笏湖冰涛节」。可惜可惜。</p>
-</li>
-<li><p>小樽运河。原先的红砖仓库群被改造成工艺小商品市场、各式风味餐厅。到了夜晚，华灯初上，沿河边那一盏盏点亮的煤气灯给人温馨和浪漫的感觉。市场中人头攒动，餐厅里举杯对饮，沿河边一簇簇人来人往的身影，竟成了一道亮丽的风景。</p>
-</li>
-<li><p>在札幌，特地来到野幌森林公园里的北海道开拓村，在这里不但可以看到很多雪景，同时还可看到很多移建于此的日本历史性建筑。</p>
-</li>
-<li><p>泡在温泉里，闭上眼睛，感觉什么压力，烦恼和忧虑都烟消云散。</p>
-</li>
-<li><p>没有时间去函馆看夜景。可惜可惜。</p>
-</li>
-<li><p>第一场国外滑雪成就达成，天空下着小雪，滑着雪的感觉真好。</p>
-</li>
-<li><p>雪，你是那么的洁白无暇，那么的轻盈飘逸，那么的洒洒脱脱。你表面冰冷，内心却非常温暖。这不正是我吗？我滑我自己。</p>
-</li>
-<li><p>还有很多印象深刻的地方和感受，大概是只可意会不能言传的吧。</p>
-</li>
-</ul>
-<h1 id="后言"><a href="#后言" class="headerlink" title="后言"></a>后言</h1><center>「昔去雪如花，今来花似雪」。</center>
-
-<p>这次因为时间上有点匆忙，很多地方都没看到。如无意外，下次应该还会再次拜访。<br>希望下次圣诞节期间再来北海道，而且不是几个人来，而是「两个人」来。</p>
-<center>あの日見わたした渚 </center>
-<center>今も思い出すんだ</center>
-<center>砂の上に刻んだ言葉</center>
-<center>君の後ろ姿</center>
-<center>寄り返す波が足元をよぎり</center>
-<center>何かをさらう</center>
-<center>夕凪の中</center>
-<center>日暮れだけが通り過ぎてゆく</center>
-<center>パッと光って咲いた 花火を見てた</center>
-<center>きっとまだ終わらない夏が</center>
-<center>曖昧な心を</center>
-<center>解かして繋いだ</center>
-<center>この夜が続いて欲しかった</center>
-
-
-
+      <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0 的点的总数。</p>
+<h1 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h1><p>显然， $max(indegree, outdegree)$ 肯定是一个下界，因为至少需要这么多边才能完全消除入度为 0 的所有的点或者出度为 0 的所有的点。</p>
+<p>可以用归纳法来构造一组合理的解。 给定任意一个图 $G$，求它的强连通分量并且缩点得到一个 DAG，令这个 DAG 为 $D$。假设 $|D| \ge 2$，否则答案很显然是 0。令 $X$ 和 $Y$ 分别表示 $D$ 中入度和出度为 0 的点集。令 $m = max(|X|, |Y|)$。通过对 $m$ 进行归纳，假设存在一种添加 $m$ 条边的解法让 $G$ 变得强连通。</p>
+<h3 id="First-m-1"><a href="#First-m-1" class="headerlink" title="First: $m = 1$"></a>First: $m = 1$</h3><p>此时，很显然有$|X| = |Y| = 1$。假设 $x$ 和 $y$ 分别是 $X$ 和 $Y$ 的唯一元素，那么只需要添加边 $(y, x)$ 即可。</p>
+<p>当$m \ge 2$的时候，考虑 $2$ 个 case。</p>
+<h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1:"></a>Case 1:</h3><p>存在 $x \in X$, $y \in Y$ 使得 $D$ 不存在从 $x$ 到 $y$ 的路径。这时添加一条边 $(y, x)$。假设添加过边的新图为 $G’$，求它的强连通分支并且缩点得到一个DAG $D’$。可以断定 $D’ = D \cup {(y, x)}$。原因很简单，如果 $D$ 的点集在添加边 $(y, x)$ 后发生了变化，唯一的可能是边 $(y, x)$ 构成了环，这说明有 $x$ 到 $y$ 的路径，矛盾。</p>
+<p>现在考虑新图 $G’$ 和它的 DAG $D’$，与 $D$ 相比，$D’$少了一个入度为 0 的点，也少了一个出度为 0 的点，所以 $m’ = m - 1$。根据归纳假设，需要再递归地添加 $m’ - 1$ 条边，加上 $(y, x)$ 本身，一共 $m$ 条。</p>
+<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2:"></a>Case 2:</h3><p>不存在上述的 $x$ 和 $y$，这意味着在 DAG $D$中所有的 $x \in X$ 都有到所有的 $y \in Y$ 通路。这时可以随意取 $D$ 中出度为 0 的点 $y$ 和入度为 0 的点 $x$，添加边 $(y, x)$。如此重复 $m$ 次即可。需要注意的是，如果某个时候不存在出度为 0 的点，那么就在 $Y$ 中任取一点，如果不存在入度为 0 的点，就在 $X$ 中任取一点。一个合理的推论是，当上述操作完成后，有以下两个性质：</p>
+<p>i. 对于 $X$ 中的任何一点 $x$，存在某个 $y \in Y$ 使得有边 $(y, x)$。</p>
+<p>ii. 对于 $Y$ 中的任何一点 $y$，存在某个 $x \in X$ 使得有变 $(y, x)$。</p>
+<p>接着，需要证明，为什么这样随意的添加边之后 $D$ 会变得强连通（因此 $G$ 也就强连通了）。</p>
+<p>实际上，任取 $D$ 中的两个点 $a$ 和 $b$，首先一定存在某个 $y_1 \in Y$（$y_1$ 可能是 $a$ 本身），使得有 $a$ 到 $y_1$ 的路径。其次，根据性质(ii)，存在某个 $x_1 \in X$ 使得有边 $(y_1, x_1)$。再看点 $b$，容易知道一定存在某个 $x_2 \in X$ 使得 $D$ 中存在 $x_2$ 到 $b$ 的路径($x_2$可能是 $b$ 本身)。再根据性质(i)，存在某个 $y_2 \in Y$ 使得有边 $(y_2, x_2)$。最后，根据一开始的假设，$X$ 中的每个点都有到 $Y$ 中每个点的路径，即存在 $x_1$ 到 $y_2$ 的路径，于是找到了一条通路 $a \rightsquigarrow y_1 \rightarrow x_1 \rightsquigarrow y_2 \rightarrow x_2 \rightsquigarrow b$。</p>
 
     
   </div>
@@ -328,10 +277,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2019/12/08/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%97%B6%E4%BB%A3%E7%9C%9F%E7%9A%84%E4%BC%9A%E6%9D%A5%E4%B8%B4%E5%90%97%EF%BC%9F-1/">
+    <a class="show pull-left" href="/2020/01/07/%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2019/12/17/primitive-pythagorean-triples-%E8%AE%A1%E6%95%B0%E6%8B%93%E5%B1%95/">
+    <a class="show pull-right" href="/2025/01/01/Project-Euler%20%E8%A7%A3%E8%AA%AC/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -445,7 +394,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'lzyrapx';
     
-    var disqus_url = 'http://lzyrapx.xyz/2019/12/14/%E4%B8%9C%E4%BA%AC-%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%B0%E8%B1%A1/';
+    var disqus_url = 'http://lzyrapx.xyz/2020/02/23/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A/';
     
     (function(){
       var dsq = document.createElement('script');
