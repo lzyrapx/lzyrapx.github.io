@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-tags感受">
+  <html class="light page-post">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 感受 | LzyRapX</title>
+  <title>Project-Euler 解説 | LzyRapX</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="lzyrapx, 算法竞赛, 文明进步, 所思所想, 谈天说地, 电子竞技" />
+    <meta name="keywords" content="project-euler," />
   
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LzyRapX">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;tags&#x2F;%E6%84%9F%E5%8F%97&#x2F;index.html">
+  <meta name="description" content="p703: 树形dp，计算独立集。  p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…  p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…    p479: 韦达定理…等比数列求和…  p476: Malfatt">
+<meta name="keywords" content="project-euler">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project-Euler 解説">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;Project-Euler%20%E8%A7%A3%E8%AA%AC&#x2F;index.html">
 <meta property="og:site_name" content="LzyRapX">
+<meta property="og:description" content="p703: 树形dp，计算独立集。  p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…  p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…    p479: 韦达定理…等比数列求和…  p476: Malfatt">
 <meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2020-02-23T13:29:28.727Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -94,17 +98,8 @@ ga('send', 'pageview');
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-tag">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">标签</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -183,208 +178,130 @@ ga('send', 'pageview');
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="/images/avatar.jpg" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: calligraffittiregular">
-        LzyRapx
-      </h3>
-      <div class="slogan">
-        Hello, the cruel world.
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Project-Euler 解説" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Project-Euler 解説</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2025.01.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zhaoyang.liang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E4%B8%9A%E4%BD%99%E7%88%B1%E5%A5%BD/">业余爱好</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.lzyrapx.xyz/2025/01/01/Project-Euler%20%E8%A7%A3%E8%AA%AC/#disqus_thread" target="_blank" rel="noopener"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ul>
+<li><p>p703: 树形dp，计算独立集。</p>
+</li>
+<li><p>p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…</p>
+</li>
+<li><p>p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…  </p>
+</li>
+<li><p>p479: 韦达定理…等比数列求和…</p>
+</li>
+<li><p>p476: Malfatti circles, 贪心，只有一种放法可以使得面积最大，但我不会证明…不过有paper证明了…</p>
+</li>
+<li><p>p475: dp….看到可以将题目转化为图的计数的神奇做法…</p>
+</li>
+<li><p>p442: 二分 + AC 自动机上DP…</p>
+</li>
+<li><p>p441: 莫比乌斯反演, 那个求和只要差分一下就变成调和级数了。 $O(nlogn)$。可以做到 $O(n^{2/3} (\log n)^{1/3})$。</p>
+</li>
+<li><p>p226: Simpson 积分…</p>
+</li>
+<li><p>p200: Miller-Rabin…暴力…</p>
+</li>
+<li><p>p178: 四维dp。</p>
+</li>
+<li><p>p162: 容斥原理直接手算….发现 MuthuVeerappanR 这人就喜欢啥题都用生成函数去做…还有人将16个数字推广到 n 个数字的…</p>
+</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">感谢阅读</span>
+      <div class="donation-body">
+        <div class="tip text-center">Thanks</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>Welcome！</span>
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
       </div>
     </div>
   </div>
 
-</div>
 
-  <section class="tag-box">
-  <div class="tag-title">标签</div>
-  <div class="tag-list">
-    
-      <a class="tag-item" href="#project-euler">
-        <span class="tag-name">project-euler</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#感受">
-        <span class="tag-name">感受</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#房贷">
-        <span class="tag-name">房贷</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#旅游文化">
-        <span class="tag-name">旅游文化</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#胡言乱语">
-        <span class="tag-name">胡言乱语</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#计数">
-        <span class="tag-name">计数</span>
-        <span class="tag-size">( 1 )</span>
-      </a>
-    
-      <a class="tag-item" href="#随笔">
-        <span class="tag-name">随笔</span>
-        <span class="tag-size">( 2 )</span>
-      </a>
-    
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/01/07/%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
-</section>
-
-  <ul class="list-post"><li id="project-euler" class="item-category-name item-title item-title-0">
-  <!--
-    <a href="" class="text-year">
-   -->
-    project-euler
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">01-01</span>
-
-  
-  <a class="post-title" href="/2025/01/01/Project-Euler%20%E8%A7%A3%E8%AA%AC/">Project-Euler 解説</a>
 
 
-</li>
-<li id="感受" class="item-category-name item-title item-title-1">
-  <!--
-    <a href="" class="text-year">
-   -->
-    感受
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">01-07</span>
-
-  
-  <a class="post-title" href="/2020/01/07/%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">再看罗振宇的跨年演讲《时间的朋友》</a>
 
 
-</li>
-<li id="房贷" class="item-category-name item-title item-title-2">
-  <!--
-    <a href="" class="text-year">
-   -->
-    房贷
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">12-29</span>
-
-  
-  <a class="post-title" href="/2019/12/29/%E5%AF%B9%E6%88%BF%E8%B4%B7%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%89%AF%E8%B0%88/">对房贷的分析与扯谈</a>
-
-
-</li>
-<li id="旅游文化" class="item-category-name item-title item-title-3">
-  <!--
-    <a href="" class="text-year">
-   -->
-    旅游文化
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">12-14</span>
-
-  
-  <a class="post-title" href="/2019/12/14/%E4%B8%9C%E4%BA%AC-%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%B0%E8%B1%A1/">东京-北海道印象</a>
-
-
-</li>
-<li id="胡言乱语" class="item-category-name item-title item-title-4">
-  <!--
-    <a href="" class="text-year">
-   -->
-    胡言乱语
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">12-08</span>
-
-  
-  <a class="post-title" href="/2019/12/08/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%97%B6%E4%BB%A3%E7%9C%9F%E7%9A%84%E4%BC%9A%E6%9D%A5%E4%B8%B4%E5%90%97%EF%BC%9F-1/">区块链的时代真的会来临吗？</a>
-
-
-</li>
-<li id="计数" class="item-category-name item-title item-title-0">
-  <!--
-    <a href="" class="text-year">
-   -->
-    计数
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">12-17</span>
-
-  
-  <a class="post-title" href="/2019/12/17/primitive-pythagorean-triples-%E8%AE%A1%E6%95%B0%E6%8B%93%E5%B1%95/">primitive pythagorean triples 计数拓展</a>
-
-
-</li>
-<li id="随笔" class="item-category-name item-title item-title-1">
-  <!--
-    <a href="" class="text-year">
-   -->
-    随笔
-    <span class="category-count">( 2 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">12-26</span>
-
-  
-  <a class="post-title" href="/2019/12/26/2019%E7%9A%84%E9%81%97%E6%86%BE%E4%B8%8E%E5%B1%95%E6%9C%9B/">2019的遗憾与展望</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">12-05</span>
-
-  
-  <a class="post-title" href="/2019/12/05/%E7%BB%88%E7%84%89%E4%B8%8E%E8%B5%B7%E5%A7%8B/">终焉与起始</a>
-
-
-</li>
-</ul>
 </div>
 
 
   <a id="backTop" class="back-top">
     <i class="icon-angle-up"></i>
   </a>
-
-
 
 
 
@@ -472,6 +389,47 @@ ga('send', 'pageview');
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'lzyrapx';
+    
+    var disqus_url = 'http://lzyrapx.xyz/2025/01/01/Project-Euler%20%E8%A7%A3%E8%AA%AC/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//lzyrapx.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
 
   
 
