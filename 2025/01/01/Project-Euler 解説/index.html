@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="LzyRapX">
 <meta property="og:description" content="p703: 树形dp，计算独立集。  p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…  p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…    p479: 韦达定理…等比数列求和…  p476: Malfatt">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-02-23T13:29:28.727Z">
+<meta property="og:updated_time" content="2020-02-23T15:02:34.365Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -285,7 +285,7 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/02/23/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A/">
+    <a class="show pull-left" href="/2020/02/23/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/">
         <i class="icon icon-angle-left"></i>
     </a>
     <a class="hide pull-right" href="/">
@@ -463,5 +463,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
