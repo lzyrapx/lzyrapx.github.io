@@ -15,15 +15,15 @@
     <meta name="keywords" content="感受," />
   
 
-  <meta name="description" content="Pre虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因，也可能是我这人就是热衷于闷声发大财吧…但我平时还是会花大量时间去思考一些事情。比如，如果作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢">
+  <meta name="description" content="问题虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因…也可能是我这人就是热衷于闷声发大财吧…但我平时还是会花大量时间去思考一些事情。比如，作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？如果可以把一些规则处理好，把人管理好，个人见多识广，学识渊博，经验足，阅历厚，那肯定意味着就是一个好的 Tech Lead。 如何处理一个新项目 基础设施 生产环境是">
 <meta name="keywords" content="感受">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to be a good Tech Lead">
 <meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;03&#x2F;19&#x2F;How-to-be-a-good-Tech-Lead&#x2F;index.html">
 <meta property="og:site_name" content="LzyRapX">
-<meta property="og:description" content="Pre虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因，也可能是我这人就是热衷于闷声发大财吧…但我平时还是会花大量时间去思考一些事情。比如，如果作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢">
+<meta property="og:description" content="问题虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因…也可能是我这人就是热衷于闷声发大财吧…但我平时还是会花大量时间去思考一些事情。比如，作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？如果可以把一些规则处理好，把人管理好，个人见多识广，学识渊博，经验足，阅历厚，那肯定意味着就是一个好的 Tech Lead。 如何处理一个新项目 基础设施 生产环境是">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-03-20T15:21:35.640Z">
+<meta property="og:updated_time" content="2020-03-20T15:59:38.071Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -183,7 +183,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre"><span class="toc-text">Pre</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理一个新项目"><span class="toc-text">如何处理一个新项目</span></a></li></ol></li></ol>
   </div>
 
 
@@ -234,7 +234,93 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h2 id="Pre"><a href="#Pre" class="headerlink" title="Pre"></a>Pre</h2><p>虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因，也可能是我这人就是热衷于闷声发大财吧…<br>但我平时还是会花大量时间去思考一些事情。比如，<strong>如果作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢</strong></p>
+      <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>虽然我平时在工作中会一声不吭，可能是思考占了我大部分精力的原因…也可能是我这人就是热衷于闷声发大财吧…但我平时还是会花大量时间去思考一些事情。比如，<strong>作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？</strong>如果可以把一些<strong>规则处理好</strong>，<strong>把人管理好</strong>，<strong>个人见多识广，学识渊博，经验足，阅历厚</strong>，那肯定意味着就是一个好的 Tech Lead。</p>
+<h2 id="如何处理一个新项目"><a href="#如何处理一个新项目" class="headerlink" title="如何处理一个新项目"></a>如何处理一个新项目</h2><ol>
+<li>基础设施<ul>
+<li>生产环境是什么？</li>
+<li>开发环境是什么？</li>
+<li>怎么上线？</li>
+<li>负载均衡怎么做？</li>
+<li>需要防火墙吗？</li>
+<li>需要证书吗？</li>
+<li>内网使用还是外网使用？</li>
+<li>CICD怎么做？</li>
+</ul>
+</li>
+<li>第三方<ul>
+<li>集成？</li>
+<li>如果各个集成环境间是超出能控制的混乱状态，怎么保障各个集成环境是组织良好有序、顺畅、自动化、边界规划合理的？</li>
+</ul>
+</li>
+<li>找出有号召力的人<ul>
+<li>首先要具有责任心？</li>
+<li>再者需要准时而有分寸？</li>
+<li>最后可以说“No”的、能够砍预算、能够对任何人说“你干得很棒”的人？<ul>
+<li>架构师？</li>
+<li>对数据保护有控制权的人？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>找到任何关于团队的工作文档，阅读并理解它<ul>
+<li>部署文档？</li>
+<li>测试文档？</li>
+<li>用户使用文档？</li>
+<li>接口文档？</li>
+<li>架构文档？</li>
+<li>UML设计文档？</li>
+</ul>
+</li>
+<li>预算和价值定位<ul>
+<li>是否清楚和控制预算？</li>
+<li>为什么要做这个项目？</li>
+<li>怎么定义项目价值？</li>
+<li>怎么定义项目中各个模块的角色？</li>
+</ul>
+</li>
+<li>试着跟每个团队成员进行一对一的面谈<ul>
+<li>试着去了解成员各自的目标、特别是在这个项目中的目标，同时将自己的目标传达给他们？</li>
+<li>什么是他们的主要痛点和障碍？</li>
+<li>不懂也要多问</li>
+</ul>
+</li>
+<li>和项目经理做朋友，并明白他们是怎样管理项目进度的<ul>
+<li>互相建立信任关系？</li>
+<li>不要尝试做一个财务细节上的专家，只要懂得财务的基础知识就可以了？</li>
+</ul>
+</li>
+<li>如果有多个团队，找到并结识其他团队的 Tech Lead<ul>
+<li>认识更多的人力资本肯定没坏事？</li>
+</ul>
+</li>
+<li>Backlog<ul>
+<li>确保边界清晰?</li>
+<li>是否需要使用 story trees和 backlog hierarchies?</li>
+<li>需不需要从高处俯视正在建立的东西？</li>
+</ul>
+</li>
+<li>代码<ul>
+<li>确保有代码的读写权限？</li>
+<li>保持和代码的联系？</li>
+<li>定期找开发做一次介绍？</li>
+<li>需要对整个代码库和架构等有个完整的印象？</li>
+</ul>
+</li>
+<li>主要痛点和障碍<ul>
+<li>分析项目痛点和障碍？</li>
+<li>分析第三方痛点和障碍？</li>
+<li>分析其他痛点和障碍？比如财务预算？</li>
+</ul>
+</li>
+<li>作为 Tech Lead，这个项目中最害怕的事有哪些？<ul>
+<li>未知的事物都是最害怕的？</li>
+<li>存在一些比较大的风险？</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>以上仅适合于大型的企业项目中，小项目小团队在项目开始时很多都不会考虑这么清楚的。</p>
+</blockquote>
 
     
   </div>
@@ -443,5 +529,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
