@@ -15,15 +15,15 @@
     <meta name="keywords" content="project-euler," />
   
 
-  <meta name="description" content="p704: 和 Kummer’s theorem 有关…  p703: 树形dp，计算独立集。  p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…  p547: 求带洞的正方形中任意两点间距离的期望，从 wuhang 在 p695 的 post 里学了一下拟蒙特卡罗(quasi-Mo">
+  <meta name="description" content="p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路，然后搜了一个小时paper和资料，搜到了Light Out这个网站…  p706:  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequence就是序列中每个数字的因子数乘积。预处理每种数字对 inversion count的贡献，然后暴">
 <meta name="keywords" content="project-euler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Project-Euler 解説">
 <meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;Project-Euler%20%E8%A7%A3%E8%AA%AC&#x2F;index.html">
 <meta property="og:site_name" content="LzyRapX">
-<meta property="og:description" content="p704: 和 Kummer’s theorem 有关…  p703: 树形dp，计算独立集。  p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…  p547: 求带洞的正方形中任意两点间距离的期望，从 wuhang 在 p695 的 post 里学了一下拟蒙特卡罗(quasi-Mo">
+<meta property="og:description" content="p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路，然后搜了一个小时paper和资料，搜到了Light Out这个网站…  p706:  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequence就是序列中每个数字的因子数乘积。预处理每种数字对 inversion count的贡献，然后暴">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-03-01T14:56:49.762Z">
+<meta property="og:updated_time" content="2020-03-29T15:40:14.613Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -230,6 +230,14 @@ ga('send', 'pageview');
   <div class="article-content">
     
       <ul>
+<li><p>p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。</p>
+</li>
+<li><p>p707: 看了一会没啥思路，然后搜了一个小时paper和资料，搜到了<a href="https://www.win.tue.nl/~aeb/ca/madness/madrect.html" target="_blank" rel="noopener">Light Out</a>这个网站…</p>
+</li>
+<li><p>p706:</p>
+</li>
+<li><p>p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequence就是序列中每个数字的因子数乘积。预处理每种数字对 inversion count的贡献，然后暴力所有质因子并记录数字的频率，用乘法原理统计答案即可。</p>
+</li>
 <li><p>p704: 和 Kummer’s theorem 有关…</p>
 </li>
 <li><p>p703: 树形dp，计算独立集。</p>
@@ -467,20 +475,5 @@ ga('send', 'pageview');
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
