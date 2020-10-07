@@ -15,15 +15,15 @@
     <meta name="keywords" content="project-euler," />
   
 
-  <meta name="description" content="p712:  p711:  p710:  p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就">
+  <meta name="description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
 <meta name="keywords" content="project-euler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Project-Euler 解説">
 <meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;Project-Euler%20%E8%A7%A3%E8%AA%AC&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
-<meta property="og:description" content="p712:  p711:  p710:  p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就">
+<meta property="og:description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-05T14:02:48.383Z">
+<meta property="og:updated_time" content="2020-10-06T15:45:27.940Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -230,12 +230,6 @@ ga('send', 'pageview');
   <div class="article-content">
     
       <ul>
-<li><p>p712:</p>
-</li>
-<li><p>p711:</p>
-</li>
-<li><p>p710:</p>
-</li>
 <li><p>p709: O(n^2) dp, 比较容易想到。</p>
 </li>
 <li><p>p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。</p>
@@ -268,13 +262,23 @@ ga('send', 'pageview');
 </li>
 <li><p>p441: 莫比乌斯反演, 那个求和只要差分一下就变成调和级数了。 $O(nlogn)$。可以做到 $O(n^{2/3} (\log n)^{1/3})$。</p>
 </li>
+<li><p>p303: 简单的 bfs。用 python 写会很慢(用 list 实现 queue)，加了剪枝才快，不加剪枝很慢，换成 C++ 不加剪枝都很快…因此建议用 C++ 写，但是 $f(9999)$ 爆 long long 了。这个甚至可以直接 OEIS。</p>
+</li>
+<li><p>p297: 找规律，<a href="http://oeis.org/A007895" target="_blank" rel="noopener">A007895</a>。可以发现一些递归结构。需要记忆化。$z(m) = z(f(n)) + z(m-f(n)) + m-f(n)$, $f(n)$是小于 $n$ 中最大的 fibonacci number。</p>
+</li>
+<li><p>p288: 直接根据阶乘的中质因子 $p$ 的个数的公式计算。$p^n!$ 的 质因子 $p$ 的个数是 $\frac{p^n - 1}{p - 1}$</p>
+</li>
 <li><p>p226: Simpson 积分…</p>
 </li>
 <li><p>p200: Miller-Rabin…暴力…</p>
 </li>
 <li><p>p178: 四维dp。</p>
 </li>
-<li><p>p162: 容斥原理直接手算….发现 MuthuVeerappanR 这人就喜欢啥题都用生成函数去做…还有人将16个数字推广到 n 个数字的…</p>
+<li><p>p162: 容斥原理直接手算….发现 MuthuVeerappanR 这人就喜欢啥题都用生成函数去做…还有人将 16 个数字推广到 n 个数字的…</p>
+</li>
+<li><p>p160: 找出 $10^{12}!$ 的最后非零五项。中国剩余定理 或者 利用 last5Digit($n$) = last5Digit($n * 5^x$) 即，last5Digit($10^{12}$) = last5Digit($2560000$) 或者 wolframalpha。</p>
+</li>
+<li><p>p159: dp。递推式: $mdrs(n) = max(drs(n), mdrs(a) + mdrs(b))$, $a * b == n$。</p>
 </li>
 <li><p>p158: 对于每个 $n$, 答案就是 <a href="https://en.wikipedia.org/wiki/Eulerian_number" target="_blank" rel="noopener">Eulerian_number</a>, $A(n, 1) = 2^n-n-1$, 因此, $p(n)=(2^{n}-n-1)\binom{26}{n}$</p>
 </li>
