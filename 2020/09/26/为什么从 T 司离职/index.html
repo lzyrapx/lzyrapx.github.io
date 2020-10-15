@@ -289,7 +289,7 @@ ga('send', 'pageview');
     <a class="show pull-left" href="/2020/03/19/How-to-be-a-good-Tech-Lead/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2024/08/20/%E6%8C%87%E5%BC%B9%E8%AE%B0%E5%BD%95/">
+    <a class="show pull-right" href="/2020/10/14/%E6%B3%B3%E9%81%93/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -464,5 +464,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
