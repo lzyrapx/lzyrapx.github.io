@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="lzyrapx">
 <meta property="og:description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-18T07:42:54.617Z">
+<meta property="og:updated_time" content="2020-10-18T08:08:30.087Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -264,7 +264,7 @@ ga('send', 'pageview');
 </li>
 <li><p>p430: 第 $i$ 个盘子没有被翻转的概率是 $p = \frac{(i - 1)^2 + (N - i)^2}{N^2}$，$prob(k)$ 表示在 $k$ 轮后白面向上的盘子数目的概率。$prob(k) = prob(k - 1) * p + (1 - prob(k - 1)) * (1 - p)$ =&gt; $prob(k) = \frac{1 + (2q - 1)^k}{2}$，显然，计算 $(2q - 1)^m$ 时，让 $(2q - 1)^m$ 足够小即可。那么答案就是 $\frac{n}{2} + \sum_{k=1}^n {prob(k)}$。</p>
 </li>
-<li><p>p417: 可以发现，$L(k) = L(k * 2), L(k) = L(k * 5)$, 其中，$k % 2 == 0 || k % 5 == 0$。 $L(k) = x$, 满足最小正整数 $x$, $10^x \mod k = 1$ &amp;&amp; $phi(k) \mod L(k) = 0$。时间复杂度：$O(nlog^2 n)$。</p>
+<li><p>p417: 可以发现，$L(k) = L(k * 2), L(k) = L(k * 5)$, 其中，$k % 2 = 0 or k % 5 = 0$。 $L(k) = x$, 满足最小正整数 $x$, $10^x \mod k = 1$ &amp;&amp; $phi(k) \mod L(k) = 0$。时间复杂度：$O(nlog^2 n)$。</p>
 </li>
 <li><p>p343: 可以发现，$f(k) = largest\_prime\_factor(k+1)-1$, $k^3 + 1 = (k + 1) * (k^2 - k + 1)$, $f(k^3) = largest\_prime\_factor(k^3+1)-1$ =&gt; $largest\_prime\_factor((k + 1) * (k^2 - k + 1))-1$ =&gt; $max(largest\_prime\_factor(k + 1), (k^2 - k + 1)) - 1$。</p>
 </li>
