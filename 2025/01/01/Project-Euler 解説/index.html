@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="lzyrapx">
 <meta property="og:description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-11T04:16:45.033Z">
+<meta property="og:updated_time" content="2020-10-18T07:42:54.617Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -262,9 +262,13 @@ ga('send', 'pageview');
 </li>
 <li><p>p441: 莫比乌斯反演, 那个求和只要差分一下就变成调和级数了。 $O(nlogn)$。可以做到 $O(n^{2/3} (\log n)^{1/3})$。</p>
 </li>
-<li><p>p343: 可以发现，f(k) = largest_prime_factor(k+1)-1, $k^3 + 1 = (k + 1) * (k^2 - k + 1)$, f(k^3) = largest_prime_factor(k^3+1)-1 = largest_prime_factor((k + 1) * (k^2 - k + 1))-1 = max(largest_prime_factor(k + 1), (k^2 - k + 1)) - 1。</p>
+<li><p>p430: 第 $i$ 个盘子没有被翻转的概率是 $p = \frac{(i - 1)^2 + (N - i)^2}{N^2}$，$prob(k)$ 表示在 $k$ 轮后白面向上的盘子数目的概率。$prob(k) = prob(k - 1) * p + (1 - prob(k - 1)) * (1 - p)$ =&gt; $prob(k) = \frac{1 + (2q - 1)^k}{2}$，显然，计算 $(2q - 1)^m$ 时，让 $(2q - 1)^m$ 足够小即可。那么答案就是 $\frac{n}{2} + \sum_{k=1}^n {prob(k)}$。</p>
 </li>
-<li><p>p333: dp。dp[i][j] 表示对于 $i$ 可以满足 $i = \sum_{}{2^x3^y}$ 的 partition 的个数，其中， $y &lt;= j$。所以 $j$ 的上限是 $log_3{1000000}$。</p>
+<li><p>p417: 可以发现，$L(k) = L(k * 2), L(k) = L(k * 5)$, 其中，$k % 2 == 0 || k % 5 == 0$。 $L(k) = x$, 满足最小正整数 $x$, $10^x \mod k = 1$ &amp;&amp; $phi(k) \mod L(k) = 0$。时间复杂度：$O(nlog^2 n)$。</p>
+</li>
+<li><p>p343: 可以发现，$f(k) = largest\_prime\_factor(k+1)-1$, $k^3 + 1 = (k + 1) * (k^2 - k + 1)$, $f(k^3) = largest\_prime\_factor(k^3+1)-1$ =&gt; $largest\_prime\_factor((k + 1) * (k^2 - k + 1))-1$ =&gt; $max(largest\_prime\_factor(k + 1), (k^2 - k + 1)) - 1$。</p>
+</li>
+<li><p>p333: dp。$dp[i][j]$ 表示对于 $i$ 可以满足 $i = \sum_{}{2^x3^y}$ 的 partition 的个数，其中， $y &lt;= j$。所以 $j$ 的上限是 $log_3{1000000}$。</p>
 </li>
 <li><p>p317: 物理题. 考虑两种最极端的情况: (1) 垂直向上射出, 可以算出一个最高点。 (2) 水平射出, 可以算出一个最远点。连接这两个点就是一条抛物线，求这个抛物线的包络线就可以了。需要花时间 re-learn 一下以前简单的物理公式，然后直接推导出公式即可。抛物线体的体积计算：<a href="https://mathworld.wolfram.com/Paraboloid.html" target="_blank" rel="noopener">Paraboloid</a>。高中物理里的斜抛物体最高上升高度 $h=\frac{v^2}{2g}$。</p>
 </li>
