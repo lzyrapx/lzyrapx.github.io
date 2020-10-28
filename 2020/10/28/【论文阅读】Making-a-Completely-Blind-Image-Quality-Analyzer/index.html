@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>【论文阅读】Making a Completely Blind Image Quality Analyzer | lzyrapx</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="论文阅读," />
+  
+
+  <meta name="description" content="链接：论文链接 介绍论文介绍了一种新的无参考图像质量指标模型，这个新的模型称为 NIQE(Natural Image Quality Evaluator)。这个模型的设计思路是基于构建一系列的用于衡量图像质量的特征，并且将这些特征用于拟合一个多元的高斯模型。这些特征是从一些简单并且高度规则的自然景观中提取的。另外，模型实际上是衡量一张待测图像在多元分布上的差异，这个分布则是由一系列的正常的自然图像">
+<meta name="keywords" content="论文阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【论文阅读】Making a Completely Blind Image Quality Analyzer">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;10&#x2F;28&#x2F;%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Making-a-Completely-Blind-Image-Quality-Analyzer&#x2F;index.html">
+<meta property="og:site_name" content="lzyrapx">
+<meta property="og:description" content="链接：论文链接 介绍论文介绍了一种新的无参考图像质量指标模型，这个新的模型称为 NIQE(Natural Image Quality Evaluator)。这个模型的设计思路是基于构建一系列的用于衡量图像质量的特征，并且将这些特征用于拟合一个多元的高斯模型。这些特征是从一些简单并且高度规则的自然景观中提取的。另外，模型实际上是衡量一张待测图像在多元分布上的差异，这个分布则是由一系列的正常的自然图像">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2020-10-28T06:46:36.941Z">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#链接："><span class="toc-text">链接：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构建模型"><span class="toc-text">构建模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#个人想法"><span class="toc-text">个人想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-【论文阅读】Making-a-Completely-Blind-Image-Quality-Analyzer" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">【论文阅读】Making a Completely Blind Image Quality Analyzer</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.10.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zhaoyang.liang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.lzyrapx.xyz/2020/10/28/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Making-a-Completely-Blind-Image-Quality-Analyzer/#disqus_thread" target="_blank" rel="noopener"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h2><p><a href="https://live.ece.utexas.edu/publications/2013/mittal2013.pdf" target="_blank" rel="noopener">论文链接</a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>论文介绍了一种新的无参考图像质量指标模型，这个新的模型称为 NIQE(Natural Image Quality Evaluator)。<br>这个模型的设计思路是基于构建一系列的用于衡量图像质量的特征，并且将这些特征用于拟合一个多元的高斯模型。这些特征是从一些简单并且高度规则的自然景观中提取的。另外，模型实际上是衡量一张待测图像在多元分布上的差异，这个分布则是由一系列的正常的自然图像中提取的这些特征所构建的。</p>
+<h2 id="构建模型"><a href="#构建模型" class="headerlink" title="构建模型"></a>构建模型</h2><ul>
+<li><p>空间域上的特征，称之为 Spatial Domain NSS。</p>
+<p>它按照如下的方式进行计算，首先是提取图像中的一个个 patch，然后做下面这样的一个归一化。<br>$$\hat{I}(i, j)=\frac{I(i, j)-\mu(i, j)}{\sigma(i, j)+1}$$</p>
+<p>其中各项如下所示：<br>$$\mu(i, j)=\sum_{k=-K}^{K} \sum_{l=-L}^{L} w_{k, l} I(i+k, j+l)$$<br>$$\sigma(i, j)=\sqrt{\sum_{k=-K}^{K} \sum_{l=-L}^{L} w_{k, l}[I(i+k, j+l)-\mu(i, j)]^{2}}$$</p>
+<p>这里的 $\mu$ 就是高斯权重。在最初的设计中，这里的高斯权重是一个 3x3 的模板。<br>看到上面的公式，这里就很明确了。<br>上述实际上是一个基于高斯平均值以及高斯标准差的归一化计算，相对于其他的一些指标，NIQE 仅仅是计算正常的自然图像中的这个指标，因此不正常的图像多多少少会在这个指标上同正常图像的计算值会有一个歧离，从这个意义上讲，理论上 NSS 可以适用于各种图像退化种类，基于这种思想设计的 IQA 可以权衡各种图像退化，而不是像某些指标那样仅仅是在某些退化种类上有很好的的表现。</p>
+</li>
+<li><p>patch 的选择<br>如果需要计算上述的 NSS 指标，毫无疑问的是会造成图像被分裂为一个一个的 patch，在 NIQE 的算法设计中，只有一部分 patch 是有用的，这就涉及到一个 patch 的选择问题；这里实际上有一个启发，比如我们关注一个分辨率退化图像时，我们会挑选那些原本应该是 sharp 的局部边缘进行观察，判断其分辨率是否受损，而不会整个图像的所有 patch 都观察一遍。<br>这里定义了一种局部形变系数：<br>$$\delta(b)=\sum \sum_{(i, j) \in \text {patch} b} \sigma(i, j)$$<br>这里的形变系数设置了一个阈值，在论文作者的实验中，这个阈值设置的是 0.75，大于 0.75 的 patch 可以选入进行下一步计算；这一步的操作是很好理解的，因为毕竟往往是形变系数越大的 patch 说明里面的内容越复杂，其实就是说明这里的内容所包含的信息更多。这里的 $\sigma$ 就是上面步骤所述的 $\sigma$ 计算。</p>
+</li>
+<li><p>描述 patch<br>上面的内容已经说明了 patch 的空间域特征以及如何选择 patch，现在的问题在于如何设计指标来刻画我们选择的 patch，这种刻画按照设计是一种借鉴高斯分布思想的指标。<br>首先定义高斯分布类型的指标 GGD：<br>$$f(x ; \alpha, \beta)=\frac{\alpha}{2 \beta \Gamma(1 / \alpha)} \exp \left(-\left(\frac{|x|}{\beta}\right)^{\alpha}\right)$$<br>这里的 $\Gamma$ 是一个 gamma 函数:<br>$$\Gamma(a)=\int_{0}^{\infty} t^{a-1} e^{-t} d t \quad a&gt;0$$<br>根据论文的说法，这里的 $\alphaα$ $\beta$ 是可以通过论文[1]的计算方式获得。NIQE 指标设计本身在这一步很大程度上借鉴了参考论文的计算。<br>最终定义并计算了如下的特征：</p>
+<p>对于 $\forall x \leq 0$,<br>$$f\left(x ; \gamma, \beta_{l}, \beta_{r}\right)= \frac{\gamma}{\left(\beta_{l}+\beta_{r}\right) \Gamma\left(\frac{1}{\gamma}\right)} \exp \left(-\left(\frac{-x}{\beta_{l}}\right)^{\gamma}\right)$$</p>
+<p>对于 $\forall x \geq 0$,<br>$$f\left(x ; \gamma, \beta_{l}, \beta_{r}\right)= \frac{\gamma}{\left(\beta_{l}+\beta_{r}\right) \Gamma\left(\frac{1}{\gamma}\right)} \exp \left(-\left(\frac{x}{\beta_{r}}\right)^{\gamma}\right)$$</p>
+<p>$$\eta=\left(\beta_{r}-\beta_{l}\right) \frac{\Gamma(2 / r)}{\Gamma(1 / r)}$$</p>
+<p>最后，patch 的值就可以经过上述的公式计算出的指标来。</p>
+</li>
+<li><p>标准的指标获得<br>根据上面描述的总体思路，该算法在于从大量自然图像中计算出合理的指标来，然后再计算退化图像相对于这个指标的”距离”。那么就可以分为两步。</p>
+<ul>
+<li>第一步计算出这个指标来。</li>
+<li>第二步如何来衡量这个“距离”。<br>首先第一步，从上面可以看出借助于高斯行分布的特征设计具有一定的合理性（当然这里的合理性估计是由参考文献给出的），在这里我就可以定义出一组高斯型分布的密度函数：<br>$$f_{X}\left(x 1, x 2, \ldots x_{k}\right)=\frac{1}{(2 \pi)^{k / 2}\left|\sum\right|^{1 / 2}} \exp \left(-\frac{1}{2}(x-v)^{T} \sum^{-1}(x-v)\right)$$</li>
+</ul>
+<p>为什么定义这样的一种分布？因为论文作者认为自然正常图像的特征就应该以高斯分布类型存在。<br>这里的就是上面所述的 $\eta$ 计算值，$\upsilon$ 和 $\sum$ 就是上述高斯分布的均值和协方差矩阵。作者通过定义了这样的分布，然后在标准的自然正常图像上进行计算，可以刻画出这样的一个正常图像所代表的分布，并且可以根据这些自然图像的分布数据，可以估计出上述的 $\upsilon$ 以及 $\sum$ 这个过程就像一般高斯分布中估计出均值和方差一样。到这里就可以得到正常图像的刻画指标。<br>除此之外，论文还定义了不正常图像与正常图像指标间的”距离”：<br>$$\left.D\left(\nu_{1}, \nu_{2}, \Sigma_{1}, \Sigma_{2}\right)=\sqrt{\left(\left(\nu_{1}-\nu_{2}\right)^{T}\left(\frac{\Sigma_{1}+\Sigma_{2}}{2}\right)^{-1}\left(\nu_{1}-\nu_{2}\right)\right.}\right)$$<br>其中 $\nu_{1}$ 和 $\nu_{2}$ 分别代表退化图像和正常图像的均值向量(mean vectors), $\Sigma_{1}$ 和 $\Sigma_{2}$ 分别代表退化图像和正常图像的协方差矩阵(covariance matrices)。</p>
+</li>
+</ul>
+<h2 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h2><ul>
+<li>论文利用高斯分布来处理这些特征，有一个基本前提是，假设这里所涉及的特征在真实的图像中所反映的也是服从高斯分布的，但关于这一点这里没有证明而是假定这是一个事实。严格上来说，不严谨但不能说没有使用价值。</li>
+<li>论文仅仅采用空间域的特征，可能在某些场合并不十分合适，比如严格按照 patch 的分割方式获得一系列 patch，如果将不同的 patch 在空间上的位置进行对调，这样每一个 patch 都还能符合该算法的要求，但是很显然那其实可以是一个马赛克状的退化图像。</li>
+<li>该方法显然不能很好地像SSIM那样方便拓展到图像局部的判断，它这里只是一个全局的判断。</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] K. Sharifi and A. Leon-Garcia, “Estimation of shape parameter for generalized Gaussian distributions in subband decompositions of video,” IEEE Trans. Circ. Syst. Video Technol., vol. 5, no. 1, pp. 52–56, 1995.</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">感谢阅读</span>
+      <div class="donation-body">
+        <div class="tip text-center">Thanks</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>Welcome！</span>
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/10/14/%E6%B3%B3%E9%81%93/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2024/08/20/%E6%8C%87%E5%BC%B9%E8%AE%B0%E5%BD%95/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'lzyrapx';
+    
+    var disqus_url = 'http://lzyrapx.xyz/2020/10/28/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Making-a-Completely-Blind-Image-Quality-Analyzer/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//lzyrapx.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
