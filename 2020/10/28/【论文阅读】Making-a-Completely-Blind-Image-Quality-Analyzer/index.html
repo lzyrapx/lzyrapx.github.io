@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="lzyrapx">
 <meta property="og:description" content="链接：论文链接 介绍论文介绍了一种新的无参考图像质量指标模型，这个新的模型称为 NIQE(Natural Image Quality Evaluator)。这个模型的设计思路是基于构建一系列的用于衡量图像质量的特征，并且将这些特征用于拟合一个多元的高斯模型。这些特征是从一些简单并且高度规则的自然景观中提取的。另外，模型实际上是衡量一张待测图像在多元分布上的差异，这个分布则是由一系列的正常的自然图像">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-28T06:49:11.567Z">
+<meta property="og:updated_time" content="2020-10-28T07:15:02.193Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -244,7 +244,7 @@ ga('send', 'pageview');
 </li>
 <li><p>patch 的选择<br>如果需要计算上述的 NSS 指标，毫无疑问的是会造成图像被分裂为一个一个的 patch，在 NIQE 的算法设计中，只有一部分 patch 是有用的，这就涉及到一个 patch 的选择问题；这里实际上有一个启发，比如我们关注一个分辨率退化图像时，我们会挑选那些原本应该是 sharp 的局部边缘进行观察，判断其分辨率是否受损，而不会整个图像的所有 patch 都观察一遍。<br>这里定义了一种局部形变系数：<br>$$\delta(b)=\sum \sum_{(i, j) \in \text {patch} b} \sigma(i, j)$$<br>这里的形变系数设置了一个阈值，在论文作者的实验中，这个阈值设置的是 0.75，大于 0.75 的 patch 可以选入进行下一步计算；这一步的操作是很好理解的，因为毕竟往往是形变系数越大的 patch 说明里面的内容越复杂，其实就是说明这里的内容所包含的信息更多。这里的 $\sigma$ 就是上面步骤所述的 $\sigma$ 计算。</p>
 </li>
-<li><p>描述 patch<br>上面的内容已经说明了 patch 的空间域特征以及如何选择 patch，现在的问题在于如何设计指标来刻画我们选择的 patch，这种刻画按照设计是一种借鉴高斯分布思想的指标。<br>首先定义高斯分布类型的指标 GGD：<br>$$f(x ; \alpha, \beta)=\frac{\alpha}{2 \beta \Gamma(1 / \alpha)} \exp \left(-\left(\frac{|x|}{\beta}\right)^{\alpha}\right)$$<br>这里的 $\Gamma$ 是一个 gamma 函数:<br>$$\Gamma(a)=\int_{0}^{\infty} t^{a-1} e^{-t} d t \quad a&gt;0$$<br>根据论文的说法，这里的 $\alphaα$ $\beta$ 是可以通过论文[1]的计算方式获得。NIQE 指标设计本身在这一步很大程度上借鉴了参考论文的计算。<br>最终定义并计算了如下的特征：</p>
+<li><p>描述 patch<br>上面的内容已经说明了 patch 的空间域特征以及如何选择 patch，现在的问题在于如何设计指标来刻画我们选择的 patch，这种刻画按照设计是一种借鉴高斯分布思想的指标。<br>首先定义高斯分布类型的指标 GGD：<br>$$f(x ; \alpha, \beta)=\frac{\alpha}{2 \beta \Gamma(1 / \alpha)} \exp \left(-\left(\frac{|x|}{\beta}\right)^{\alpha}\right)$$<br>这里的 $\Gamma$ 是一个 gamma 函数:<br>$$\Gamma(a)=\int_{0}^{\infty} t^{a-1} e^{-t} d t \quad a&gt;0$$<br>根据论文的说法，这里的 $\alpha$ 和 $\beta$ 是可以通过论文[1]的计算方式获得。NIQE 指标设计本身在这一步很大程度上借鉴了参考论文的计算。<br>最终定义并计算了如下的特征：</p>
 <p>对于 $\forall x \leq 0$,<br>$$f\left(x ; \gamma, \beta_{l}, \beta_{r}\right)= \frac{\gamma}{\left(\beta_{l}+\beta_{r}\right) \Gamma\left(\frac{1}{\gamma}\right)} \exp \left(-\left(\frac{-x}{\beta_{l}}\right)^{\gamma}\right)$$</p>
 <p>对于 $\forall x \geq 0$,<br>$$f\left(x ; \gamma, \beta_{l}, \beta_{r}\right)= \frac{\gamma}{\left(\beta_{l}+\beta_{r}\right) \Gamma\left(\frac{1}{\gamma}\right)} \exp \left(-\left(\frac{x}{\beta_{r}}\right)^{\gamma}\right)$$</p>
 <p>$$\eta=\left(\beta_{r}-\beta_{l}\right) \frac{\Gamma(2 / r)}{\Gamma(1 / r)}$$</p>
