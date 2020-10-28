@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="lzyrapx">
 <meta property="og:description" content="链接：论文链接 介绍论文介绍了一种新的无参考图像质量指标模型，这个新的模型称为 NIQE(Natural Image Quality Evaluator)。这个模型的设计思路是基于构建一系列的用于衡量图像质量的特征，并且将这些特征用于拟合一个多元的高斯模型。这些特征是从一些简单并且高度规则的自然景观中提取的。另外，模型实际上是衡量一张待测图像在多元分布上的差异，这个分布则是由一系列的正常的自然图像">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-28T06:46:36.941Z">
+<meta property="og:updated_time" content="2020-10-28T06:49:11.567Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -261,7 +261,7 @@ ga('send', 'pageview');
 <h2 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h2><ul>
 <li>论文利用高斯分布来处理这些特征，有一个基本前提是，假设这里所涉及的特征在真实的图像中所反映的也是服从高斯分布的，但关于这一点这里没有证明而是假定这是一个事实。严格上来说，不严谨但不能说没有使用价值。</li>
 <li>论文仅仅采用空间域的特征，可能在某些场合并不十分合适，比如严格按照 patch 的分割方式获得一系列 patch，如果将不同的 patch 在空间上的位置进行对调，这样每一个 patch 都还能符合该算法的要求，但是很显然那其实可以是一个马赛克状的退化图像。</li>
-<li>该方法显然不能很好地像SSIM那样方便拓展到图像局部的判断，它这里只是一个全局的判断。</li>
+<li>该方法显然不能很好地像 SSIM 那样可以方便地拓展到图像局部的判断，它这里只是一个全局的判断。</li>
 </ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] K. Sharifi and A. Leon-Garcia, “Estimation of shape parameter for generalized Gaussian distributions in subband decompositions of video,” IEEE Trans. Circ. Syst. Video Technol., vol. 5, no. 1, pp. 52–56, 1995.</p>
 
