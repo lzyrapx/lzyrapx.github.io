@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-archives202010">
+  <html class="light page-post">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2020/10 | lzyrapx</title>
+  <title>分布式任务调度SchedulerX | lzyrapx</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="lzyrapx, 算法竞赛, 文明进步, 所思所想, 谈天说地, 电子竞技" />
+    <meta name="keywords" content="工程," />
   
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="lzyrapx">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;archives&#x2F;2020&#x2F;10&#x2F;index.html">
+  <meta name="description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提">
+<meta name="keywords" content="工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式任务调度SchedulerX">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;10&#x2F;29&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6SchedulerX&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
+<meta property="og:description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提">
 <meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2020-10-29T12:34:24.858Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -94,17 +98,8 @@ ga('send', 'pageview');
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-archive">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">博客</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -183,71 +178,115 @@ ga('send', 'pageview');
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="/images/avatar.jpg" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: calligraffittiregular">
-        LzyRapx
-      </h3>
-      <div class="slogan">
-        Hello, the cruel world.
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SchedulerX"><span class="toc-text">SchedulerX</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-分布式任务调度SchedulerX" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">分布式任务调度SchedulerX</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.10.29</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zhaoyang.liang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.lzyrapx.xyz/2020/10/29/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6SchedulerX/#disqus_thread" target="_blank" rel="noopener"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="SchedulerX"><a href="#SchedulerX" class="headerlink" title="SchedulerX"></a>SchedulerX</h2><p>SchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。<br>SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提供更多更快更强的能力。</p>
+<ul>
+<li>更多：支持多种时间表达式，任务编排，支持更多的业务场景。单机群支持上千万任务，一天上十亿次调度，支持更多的任务数。</li>
+<li>更快：支持秒级别调度，处理准实时业务。</li>
+<li>更强：支持日志查询、原地重跑、重刷数据等多种操作，提供更强的运维能力和排错手段。</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">感谢阅读</span>
+      <div class="donation-body">
+        <div class="tip text-center">Thanks</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>Welcome！</span>
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
       </div>
     </div>
   </div>
 
-</div>
 
-
-  <div class="post-list-box archive-body">
-    <ul class="list-post">  <li class="item-year item item-title item-title-0">
-    <a href="/archives/2020" class="text-year">
-      2020
-      <i class="icon-shu"></i>
-      
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/10/28/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Making-a-Completely-Blind-Image-Quality-Analyzer/">
+        <i class="icon icon-angle-left"></i>
     </a>
-  </li>
-<li class="item-post item">
-  <span class="post-date">10-29</span>
-
-  
-  <a class="post-title" href="/2020/10/29/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6SchedulerX/">分布式任务调度SchedulerX</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">10-28</span>
-
-  
-  <a class="post-title" href="/2020/10/28/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Making-a-Completely-Blind-Image-Quality-Analyzer/">【论文阅读】Making a Completely Blind Image Quality Analyzer</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">10-14</span>
-
-  
-  <a class="post-title" href="/2020/10/14/%E6%B3%B3%E9%81%93/">泳道</a>
-
-
-</li>
-</ul>
+    <a class="show pull-right" href="/2024/08/20/%E6%8C%87%E5%BC%B9%E8%AE%B0%E5%BD%95/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
-  <div class="archive-footer">
-    
 
-  </div>
+
+
 </div>
 
 
   <a id="backTop" class="back-top">
     <i class="icon-angle-up"></i>
   </a>
-
-
 
 
 
@@ -335,6 +374,47 @@ ga('send', 'pageview');
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'lzyrapx';
+    
+    var disqus_url = 'http://lzyrapx.xyz/2020/10/29/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6SchedulerX/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//lzyrapx.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
 
   
 
