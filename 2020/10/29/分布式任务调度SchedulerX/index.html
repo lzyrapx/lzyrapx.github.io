@@ -15,15 +15,15 @@
     <meta name="keywords" content="工程," />
   
 
-  <meta name="description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提">
+  <meta name="description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX 2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还">
 <meta name="keywords" content="工程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式任务调度SchedulerX">
 <meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;10&#x2F;29&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6SchedulerX&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
-<meta property="og:description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提">
+<meta property="og:description" content="SchedulerXSchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。SchedulerX 2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2020-10-29T12:34:24.858Z">
+<meta property="og:updated_time" content="2020-10-30T12:09:03.689Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -183,7 +183,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SchedulerX"><span class="toc-text">SchedulerX</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SchedulerX"><span class="toc-text">SchedulerX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意功能"><span class="toc-text">注意功能</span></a></li></ol>
   </div>
 
 
@@ -234,11 +234,19 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h2 id="SchedulerX"><a href="#SchedulerX" class="headerlink" title="SchedulerX"></a>SchedulerX</h2><p>SchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。<br>SchedulerX2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提供更多更快更强的能力。</p>
+      <h2 id="SchedulerX"><a href="#SchedulerX" class="headerlink" title="SchedulerX"></a>SchedulerX</h2><p>SchedulerX 是阿里中间件自研的基于 Akka 架构（Akka in Schedulerx2.0）的新一代分布式任务调度平台，提供定时、任务编排、分布式跑批等功能，具有高可靠、海量任务、秒级调度、可运维等能力。<br>SchedulerX 2.0 开始于 2018-01-22，没有参考 DTS 和 SchedulerX，是全新自研的下一代任务调度平台，不但兼容老版本编程模型，还提供更多更快更强的能力。</p>
 <ul>
 <li>更多：支持多种时间表达式，任务编排，支持更多的业务场景。单机群支持上千万任务，一天上十亿次调度，支持更多的任务数。</li>
 <li>更快：支持秒级别调度，处理准实时业务。</li>
 <li>更强：支持日志查询、原地重跑、重刷数据等多种操作，提供更强的运维能力和排错手段。</li>
+</ul>
+<h2 id="注意功能"><a href="#注意功能" class="headerlink" title="注意功能"></a>注意功能</h2><ul>
+<li>强大的定时调度器：Crontab，当然，必须支持 crontab 表达式</li>
+<li>Fixed rate：众所周知，crontab 必须被 60 整除，比如想每隔 40 分钟跑一次，cron 不支持。Fixed rate 专门用来做定期轮询，表达式简单。</li>
+<li>Fixed delay：适合做轮询的业务，比如每次执行完成隔 10 秒再跑，那么 fixed delay 非常适合你。</li>
+<li>日历：支持多种日历，还可以自定义导入日历。比如金融业务需要在每个交易日执行。</li>
+<li>时区：跨国的业务，需要在每个国家的时区定时执行某个任务。</li>
+<li>任务编排：schedulerx 2.0 支持工作流（DAG）进行任务编排，操作简单，前端直接单手操作拖拖拽拽即可。</li>
 </ul>
 
     
