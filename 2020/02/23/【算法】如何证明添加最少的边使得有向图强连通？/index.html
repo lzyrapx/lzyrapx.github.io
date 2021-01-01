@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>【算法】如何证明添加最少的边使得有向图强连通？ | lzyrapx</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="算法," />
+  
+
+  <meta name="description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【算法】如何证明添加最少的边使得有向图强连通？">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;02&#x2F;23&#x2F;%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F&#x2F;index.html">
+<meta property="og:site_name" content="lzyrapx">
+<meta property="og:description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-01-01T08:56:57.238Z">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof"><span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#First-m-1"><span class="toc-text">First: $m = 1$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-1"><span class="toc-text">Case 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-2"><span class="toc-text">Case 2:</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-【算法】如何证明添加最少的边使得有向图强连通？" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">【算法】如何证明添加最少的边使得有向图强连通？</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.02.23</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zhaoyang.liang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F/">人生</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.lzyrapx.xyz/2020/02/23/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/#disqus_thread" target="_blank" rel="noopener"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0 的点的总数。</p>
+<h1 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h1><p>显然， $max(indegree, outdegree)$ 肯定是一个下界，因为至少需要这么多边才能完全消除入度为 0 的所有的点或者出度为 0 的所有的点。</p>
+<p>可以用归纳法来构造一组合理的解。 给定任意一个图 $G$，求它的强连通分量并且缩点得到一个 DAG，令这个 DAG 为 $D$。假设 $|D| \ge 2$，否则答案很显然是 0。令 $X$ 和 $Y$ 分别表示 $D$ 中入度和出度为 0 的点集。令 $m = max(|X|, |Y|)$。通过对 $m$ 进行归纳，假设存在一种添加 $m$ 条边的解法让 $G$ 变得强连通。</p>
+<h3 id="First-m-1"><a href="#First-m-1" class="headerlink" title="First: $m = 1$"></a>First: $m = 1$</h3><p>此时，很显然有$|X| = |Y| = 1$。假设 $x$ 和 $y$ 分别是 $X$ 和 $Y$ 的唯一元素，那么只需要添加边 $(y, x)$ 即可。</p>
+<p>当$m \ge 2$的时候，考虑 $2$ 个 case。</p>
+<h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1:"></a>Case 1:</h3><p>存在 $x \in X$, $y \in Y$ 使得 $D$ 不存在从 $x$ 到 $y$ 的路径。这时添加一条边 $(y, x)$。假设添加过边的新图为 $G’$，求它的强连通分支并且缩点得到一个DAG $D’$。可以断定 $D’ = D \cup {(y, x)}$。原因很简单，如果 $D$ 的点集在添加边 $(y, x)$ 后发生了变化，唯一的可能是边 $(y, x)$ 构成了环，这说明有 $x$ 到 $y$ 的路径，矛盾。</p>
+<p>现在考虑新图 $G’$ 和它的 DAG $D’$，与 $D$ 相比，$D’$少了一个入度为 0 的点，也少了一个出度为 0 的点，所以 $m’ = m - 1$。根据归纳假设，需要再递归地添加 $m’ - 1$ 条边，加上 $(y, x)$ 本身，一共 $m$ 条。</p>
+<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2:"></a>Case 2:</h3><p>不存在上述的 $x$ 和 $y$，这意味着在 DAG $D$中所有的 $x \in X$ 都有到所有的 $y \in Y$ 通路。这时可以随意取 $D$ 中出度为 0 的点 $y$ 和入度为 0 的点 $x$，添加边 $(y, x)$。如此重复 $m$ 次即可。需要注意的是，如果某个时候不存在出度为 0 的点，那么就在 $Y$ 中任取一点，如果不存在入度为 0 的点，就在 $X$ 中任取一点。一个合理的推论是，当上述操作完成后，有以下两个性质：</p>
+<p>i. 对于 $X$ 中的任何一点 $x$，存在某个 $y \in Y$ 使得有边 $(y, x)$。</p>
+<p>ii. 对于 $Y$ 中的任何一点 $y$，存在某个 $x \in X$ 使得有变 $(y, x)$。</p>
+<p>接着，需要证明，为什么这样随意的添加边之后 $D$ 会变得强连通（因此 $G$ 也就强连通了）。</p>
+<p>实际上，任取 $D$ 中的两个点 $a$ 和 $b$，首先一定存在某个 $y_1 \in Y$（$y_1$ 可能是 $a$ 本身），使得有 $a$ 到 $y_1$ 的路径。其次，根据性质(ii)，存在某个 $x_1 \in X$ 使得有边 $(y_1, x_1)$。再看点 $b$，容易知道一定存在某个 $x_2 \in X$ 使得 $D$ 中存在 $x_2$ 到 $b$ 的路径($x_2$可能是 $b$ 本身)。再根据性质(i)，存在某个 $y_2 \in Y$ 使得有边 $(y_2, x_2)$。最后，根据一开始的假设，$X$ 中的每个点都有到 $Y$ 中每个点的路径，即存在 $x_1$ 到 $y_2$ 的路径，于是找到了一条通路 $a \rightsquigarrow y_1 \rightarrow x_1 \rightsquigarrow y_2 \rightarrow x_2 \rightsquigarrow b$。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">感谢阅读</span>
+      <div class="donation-body">
+        <div class="tip text-center">Thanks</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>Welcome！</span>
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/01/07/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/03/19/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91How-to-be-a-good-Tech-Lead/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'lzyrapx';
+    
+    var disqus_url = 'http://lzyrapx.xyz/2020/02/23/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//lzyrapx.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

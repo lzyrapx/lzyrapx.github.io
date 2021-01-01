@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>【数学】Project-Euler 解説 | lzyrapx</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="数学," />
+  
+
+  <meta name="description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
+<meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数学】Project-Euler 解説">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC&#x2F;index.html">
+<meta property="og:site_name" content="lzyrapx">
+<meta property="og:description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-01-01T08:57:32.235Z">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-【数学】Project-Euler 解説" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">【数学】Project-Euler 解説</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2025.01.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zhaoyang.liang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F/">人生</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.lzyrapx.xyz/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/#disqus_thread" target="_blank" rel="noopener"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ul>
+<li><p>p709: O(n^2) dp, 比较容易想到。</p>
+</li>
+<li><p>p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。</p>
+</li>
+<li><p>p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 <a href="https://www.win.tue.nl/~aeb/ca/madness/madrect.html" target="_blank" rel="noopener">Light Out</a> 这个网站…可能还需要理解一些概念…</p>
+</li>
+<li><p>p706: 四维 dp。</p>
+</li>
+<li><p>p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequence 就是序列中每个数字的因子数乘积。预处理每对数字对 inversion count 的贡献，然后暴力所有质数并记录数字的频率，用乘法原理统计答案即可。</p>
+</li>
+<li><p>p704: 和 Kummer’s theorem 有关…</p>
+</li>
+<li><p>p703: 树形 dp，计算独立集。</p>
+</li>
+<li><p>p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…</p>
+</li>
+<li><p>p547: 求带洞的正方形中任意两点间距离的期望，从 wuhang 在 p695 的 post 里学了一下拟蒙特卡罗(quasi-Monte Carlo)然后做的…</p>
+</li>
+<li><p>p539: 找规律。$P(2k)=P(2k+1)=2k-2P(k)+2$, $S(2k)=2k^2+4k-1-2P(k)-4S(k-1)$, $S(2k+1)=2k^2+6k+1-4S(k)$。</p>
+</li>
+<li><p>p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…  </p>
+</li>
+<li><p>p479: 韦达定理…等比数列求和…</p>
+</li>
+<li><p>p476: Malfatti circles, 贪心，只有一种放法可以使得面积最大，但我不会证明…不过有 paper 证明了…</p>
+</li>
+<li><p>p475: dp….看到可以将题目转化为图的计数的神奇做法…</p>
+</li>
+<li><p>p442: 二分 + AC 自动机上DP…</p>
+</li>
+<li><p>p441: 莫比乌斯反演, 那个求和只要差分一下就变成调和级数了。 $O(nlogn)$。可以做到 $O(n^{2/3} (\log n)^{1/3})$。</p>
+</li>
+<li><p>p430: 第 $i$ 个盘子没有被翻转的概率是 $p = \frac{(i - 1)^2 + (N - i)^2}{N^2}$，$prob(k)$ 表示在 $k$ 轮后白面向上的盘子数目的概率。$prob(k) = prob(k - 1) * p + (1 - prob(k - 1)) * (1 - p)$ =&gt; $prob(k) = \frac{1 + (2q - 1)^k}{2}$，显然，计算 $(2q - 1)^m$ 时，让 $(2q - 1)^m$ 足够小即可。那么答案就是 $\frac{n}{2} + \sum_{k=1}^n {prob(k)}$。</p>
+</li>
+<li><p>p417: 可以发现，$L(k) = L(k * 2), L(k) = L(k * 5)$, 其中，$k \mod 2 = 0$ or $k \mod 5 = 0$。 $L(k) = x$, 满足最小正整数 $x$, $10^x \mod k = 1$ &amp;&amp; $phi(k) \mod L(k) = 0$。时间复杂度：$O(nlog^2 n)$。</p>
+</li>
+<li><p>p343: 可以发现，$f(k) = largest\_prime\_factor(k+1)-1$, $k^3 + 1 = (k + 1) * (k^2 - k + 1)$, $f(k^3) = largest\_prime\_factor(k^3+1)-1$ =&gt; $largest\_prime\_factor((k + 1) * (k^2 - k + 1))-1$ =&gt; $max(largest\_prime\_factor(k + 1), (k^2 - k + 1)) - 1$。</p>
+</li>
+<li><p>p333: dp。$dp[i][j]$ 表示对于 $i$ 可以满足 $i = \sum_{}{2^x3^y}$ 的 partition 的个数，其中， $y &lt;= j$。所以 $j$ 的上限是 $log_3{1000000}$。</p>
+</li>
+<li><p>p317: 物理题. 考虑两种最极端的情况: (1) 垂直向上射出, 可以算出一个最高点。 (2) 水平射出, 可以算出一个最远点。连接这两个点就是一条抛物线，求这个抛物线的包络线就可以了。需要花时间 re-learn 一下以前简单的物理公式，然后直接推导出公式即可。抛物线体的体积计算：<a href="https://mathworld.wolfram.com/Paraboloid.html" target="_blank" rel="noopener">Paraboloid</a>。高中物理里的斜抛物体最高上升高度 $h=\frac{v^2}{2g}$。</p>
+</li>
+<li><p>p303: 简单的 bfs。用 python 写会很慢(用 list 实现 queue)，加了剪枝才快，不加剪枝很慢，换成 C++ 不加剪枝都很快…因此建议用 C++ 写，但是 $f(9999)$ 爆 long long 了。这个甚至可以直接 OEIS。</p>
+</li>
+<li><p>p297: 找规律，<a href="http://oeis.org/A007895" target="_blank" rel="noopener">A007895</a>。可以发现一些递归结构。需要记忆化。$z(m) = z(f(n)) + z(m-f(n)) + m-f(n)$, $f(n)$是小于 $n$ 中最大的 fibonacci number。</p>
+</li>
+<li><p>p288: 直接根据阶乘的中质因子 $p$ 的个数的公式计算。$p^n!$ 的 质因子 $p$ 的个数是 $\frac{p^n - 1}{p - 1}$</p>
+</li>
+<li><p>p226: Simpson 积分…</p>
+</li>
+<li><p>p200: Miller-Rabin…暴力…</p>
+</li>
+<li><p>p178: 四维dp。</p>
+</li>
+<li><p>p162: 容斥原理直接手算….发现 MuthuVeerappanR 这人就喜欢啥题都用生成函数去做…还有人将 16 个数字推广到 n 个数字的…</p>
+</li>
+<li><p>p160: 找出 $10^{12}!$ 的最后非零五项。中国剩余定理 或者 利用 last5Digit($n$) = last5Digit($n * 5^x$) 即，last5Digit($10^{12}$) = last5Digit($2560000$) 或者 wolframalpha。</p>
+</li>
+<li><p>p159: dp。递推式: $mdrs(n) = max(drs(n), mdrs(a) + mdrs(b))$, $a * b == n$。</p>
+</li>
+<li><p>p158: 对于每个 $n$, 答案就是 <a href="https://en.wikipedia.org/wiki/Eulerian_number" target="_blank" rel="noopener">Eulerian_number</a>, $A(n, 1) = 2^n-n-1$, 因此, $p(n)=(2^{n}-n-1)\binom{26}{n}$</p>
+</li>
+<li><p>p157: 简单推导变换后，暴力枚举+分解质因数</p>
+</li>
+<li><p>p156: $f(n, d)$ 的数位dp + 剪枝</p>
+</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">感谢阅读</span>
+      <div class="donation-body">
+        <div class="tip text-center">Thanks</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>Welcome！</span>
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2024/08/20/%E3%80%90%E9%9F%B3%E4%B9%90%E3%80%91%E6%8C%87%E5%BC%B9%E8%AE%B0%E5%BD%95/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'lzyrapx';
+    
+    var disqus_url = 'http://lzyrapx.xyz/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//lzyrapx.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
