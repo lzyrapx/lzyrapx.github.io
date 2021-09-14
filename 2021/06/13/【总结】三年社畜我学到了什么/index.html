@@ -329,7 +329,7 @@ ga('send', 'pageview');
     <a class="show pull-left" href="/2021/01/02/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%912020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2021/07/10/%E3%80%90%E4%BA%BA%E7%94%9F%E3%80%91%E8%B5%9A%E5%88%B0%E4%BA%BA%E7%94%9F%E7%AC%AC%E4%B8%80%E4%B8%AA100w%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89%EF%BC%9F/">
+    <a class="show pull-right" href="/2021/07/10/%E3%80%90%E4%BA%BA%E7%94%9F%E3%80%91%E8%B5%9A%E5%88%B0%E4%BA%BA%E7%94%9F%E7%AC%AC%E4%B8%80%E4%B8%AA%20100w%20%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89%EF%BC%9F/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -504,5 +504,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
