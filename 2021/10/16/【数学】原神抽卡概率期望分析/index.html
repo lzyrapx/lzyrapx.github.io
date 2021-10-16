@@ -7,23 +7,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【总结】How to be a good Tech Lead | lzyrapx</title>
+  <title>【数学】原神抽卡概率期望分析 | lzyrapx</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="总结," />
+    <meta name="keywords" content="数学," />
   
 
-  <meta name="description" content="问题我平时除了工作和娱乐，还会花大量时间去思考和总结一些事情。比如，作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？如果你可以把规则处理好，把人管理好，个人见多识广，学识渊博，经验足，阅历厚，那肯定意味着你可能就是一个优秀的 Tech Lead。 如何处理一个新项目 基础设施 生产环境是什么？ 开发环境是什么？ 怎么上线？ 负载均衡怎么做？ 需要防火墙吗？ 需要证">
-<meta name="keywords" content="总结">
+  <meta name="description" content="原神官方抽卡一般规则角色池 角色池为单 UP 池。 五星角色祈愿的基础概率为 0.600%， 综合概率(含保底) 为 1.600%， 最多 90 次祈愿内必定能通过保底获取五星角色。 当祈愿获取到五星角色时，有 50.000% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。 如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP 角色。(不可能连续">
+<meta name="keywords" content="数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【总结】How to be a good Tech Lead">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;03&#x2F;19&#x2F;%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91How-to-be-a-good-Tech-Lead&#x2F;index.html">
+<meta property="og:title" content="【数学】原神抽卡概率期望分析">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2021&#x2F;10&#x2F;16&#x2F;%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91%E5%8E%9F%E7%A5%9E%E6%8A%BD%E5%8D%A1%E6%A6%82%E7%8E%87%E6%9C%9F%E6%9C%9B%E5%88%86%E6%9E%90&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
-<meta property="og:description" content="问题我平时除了工作和娱乐，还会花大量时间去思考和总结一些事情。比如，作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？如果你可以把规则处理好，把人管理好，个人见多识广，学识渊博，经验足，阅历厚，那肯定意味着你可能就是一个优秀的 Tech Lead。 如何处理一个新项目 基础设施 生产环境是什么？ 开发环境是什么？ 怎么上线？ 负载均衡怎么做？ 需要防火墙吗？ 需要证">
+<meta property="og:description" content="原神官方抽卡一般规则角色池 角色池为单 UP 池。 五星角色祈愿的基础概率为 0.600%， 综合概率(含保底) 为 1.600%， 最多 90 次祈愿内必定能通过保底获取五星角色。 当祈愿获取到五星角色时，有 50.000% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。 如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP 角色。(不可能连续">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2021-01-01T08:44:46.749Z">
+<meta property="og:updated_time" content="2021-10-16T07:26:49.942Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -183,20 +183,20 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理一个新项目"><span class="toc-text">如何处理一个新项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何提高专业水平"><span class="toc-text">如何提高专业水平</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原神官方抽卡一般规则"><span class="toc-text">原神官方抽卡一般规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#角色池"><span class="toc-text">角色池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#武器池"><span class="toc-text">武器池</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星角色期望需要多少抽？"><span class="toc-text">抽出一个五星角色期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星武器期望需要多少抽？"><span class="toc-text">抽出一个五星武器期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星角色期望需要多少抽？-1"><span class="toc-text">抽出一个五星角色期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出满命五星角色期望需要出多少次金？"><span class="toc-text">抽出满命五星角色期望需要出多少次金？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出满精武器期望需要出多少金？"><span class="toc-text">抽出满精武器期望需要出多少金？</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-【总结】How-to-be-a-good-Tech-Lead" class="article article-type-post" itemprop="blogPost">
+   <article id="post-【数学】原神抽卡概率期望分析" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">【总结】How to be a good Tech Lead</h1>
+    <h1 class="post-title">【数学】原神抽卡概率期望分析</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.19</span>
+        <span>2021.10.16</span>
       </span>
 
       
@@ -209,7 +209,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F/">人生</a>
+    <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
   </span>
 
 
@@ -217,7 +217,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.lzyrapx.xyz/2020/03/19/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91How-to-be-a-good-Tech-Lead/#disqus_thread" target="_blank" rel="noopener"></a>
+          <a href="http://www.lzyrapx.xyz/2021/10/16/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91%E5%8E%9F%E7%A5%9E%E6%8A%BD%E5%8D%A1%E6%A6%82%E7%8E%87%E6%9C%9F%E6%9C%9B%E5%88%86%E6%9E%90/#disqus_thread" target="_blank" rel="noopener"></a>
         </span>
       
 
@@ -234,103 +234,21 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>我平时除了工作和娱乐，还会花大量时间去思考和总结一些事情。比如，<strong>作为一个 Tech Lead，在一个新项目开始时，你需要知道什么和需要做什么事呢？</strong>如果你可以<strong>把规则处理好</strong>，<strong>把人管理好</strong>，<strong>个人见多识广，学识渊博，经验足，阅历厚</strong>，那肯定意味着你可能就是一个优秀的 Tech Lead。</p>
-<h2 id="如何处理一个新项目"><a href="#如何处理一个新项目" class="headerlink" title="如何处理一个新项目"></a>如何处理一个新项目</h2><ol>
-<li>基础设施<ul>
-<li>生产环境是什么？</li>
-<li>开发环境是什么？</li>
-<li>怎么上线？</li>
-<li>负载均衡怎么做？</li>
-<li>需要防火墙吗？</li>
-<li>需要证书吗？</li>
-<li>内网使用还是外网使用？</li>
-<li>CICD怎么做？</li>
-<li>怎么处理复杂模型的上线？</li>
+      <h1 id="原神官方抽卡一般规则"><a href="#原神官方抽卡一般规则" class="headerlink" title="原神官方抽卡一般规则"></a>原神官方抽卡一般规则</h1><h2 id="角色池"><a href="#角色池" class="headerlink" title="角色池"></a>角色池</h2><ul>
+<li>角色池为单 UP 池。</li>
+<li>五星角色祈愿的基础概率为 0.600%， 综合概率(含保底) 为 1.600%， 最多 90 次祈愿内必定能通过保底获取五星角色。</li>
+<li>当祈愿获取到五星角色时，有 50.000% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。</li>
+<li>如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP 角色。(不可能连续两次歪)。</li>
 </ul>
-</li>
-<li>第三方<ul>
-<li>集成？</li>
-<li>如果各个集成环境间是超出能控制的混乱状态，怎么保障各个集成环境是组织良好有序、顺畅、自动化、边界规划合理的？</li>
+<h2 id="武器池"><a href="#武器池" class="headerlink" title="武器池"></a>武器池</h2><ul>
+<li>武器池为双 UP 池。</li>
+<li>五星武器祈愿的基础概率为 0.7000%，综合概率(含保底)为 1.850%，最多 80 次 祈愿必定能通过保底获取五星武器。</li>
+<li>当祈愿获取到五星武器时，有 75.000% 的概率为本期五星 UP 武器中两个中的一个。如果本次祈愿获取的五星武器非本期五星 UP 武器时，下次祈愿获取的五星武器必定为本期五星 UP 武器。在未通过命定值达到满值获取定轨武器的情况下，当祈愿获取到五星 UP 物体时，每把本期五星 UP 武器的获取概率均等。</li>
 </ul>
-</li>
-<li>找出有号召力的人<ul>
-<li>首先要具有责任心？</li>
-<li>再者需要准时而有分寸？</li>
-<li>最后可以说“No”的、能够砍预算、能够对任何人说“你干得很棒”的人？<ul>
-<li>架构师？</li>
-<li>项目管理？</li>
-<li>对数据保护有控制权的人？</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>找到任何关于团队的工作文档，阅读并理解它<ul>
-<li>部署文档？</li>
-<li>测试文档？</li>
-<li>用户使用文档？</li>
-<li>接口文档？</li>
-<li>架构文档？</li>
-<li>UML设计文档？</li>
-</ul>
-</li>
-<li>预算和价值定位<ul>
-<li>是否清楚和控制预算？</li>
-<li>为什么要做这个项目？</li>
-<li>怎么定义项目价值？</li>
-<li>怎么定义项目中各个模块的角色？</li>
-</ul>
-</li>
-<li>试着跟每个团队成员进行一对一的面谈<ul>
-<li>试着去了解成员各自的目标、特别是在这个项目中的目标，同时将自己的目标传达给他们？</li>
-<li>什么是他们的主要痛点和障碍？</li>
-<li>不懂也要多问?</li>
-</ul>
-</li>
-<li>和项目经理做朋友，并明白他们是怎样管理项目进度的<ul>
-<li>互相建立信任关系？</li>
-<li>不要尝试做一个财务细节上的专家，只要懂得财务的基础知识就可以了？</li>
-</ul>
-</li>
-<li>如果有多个团队，找到并结识其他团队的 Tech Lead<ul>
-<li>认识更多的人力资本肯定没坏事？</li>
-</ul>
-</li>
-<li>Backlog<ul>
-<li>确保边界清晰?</li>
-<li>是否需要使用 story trees 和 backlog hierarchies?</li>
-<li>需不需要从高处俯视正在建立的东西？</li>
-</ul>
-</li>
-<li>代码<ul>
-<li>确保有代码的读写权限？</li>
-<li>保持和代码的联系？</li>
-<li>定期找开发做一次介绍？</li>
-<li>需要对整个代码库和架构等有个完整的印象？</li>
-</ul>
-</li>
-<li>主要痛点和障碍<ul>
-<li>分析项目痛点和障碍？</li>
-<li>分析第三方痛点和障碍？</li>
-<li>分析其他痛点和障碍？比如财务预算？</li>
-</ul>
-</li>
-<li>作为 Tech Lead，这个项目中最害怕的事有哪些？<ul>
-<li>未知的事物都是最害怕的？</li>
-<li>存在一些比较大的风险？</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>以上仅适合于大型的企业项目中，小项目小团队在项目开始时很多都不会考虑这么清楚的。</p>
-</blockquote>
-<h2 id="如何提高专业水平"><a href="#如何提高专业水平" class="headerlink" title="如何提高专业水平"></a>如何提高专业水平</h2><ol>
-<li>多看相关书籍？</li>
-<li>多与经验丰富的人交流或者请教？</li>
-<li>多写总结？多写心得体会？</li>
-<li>做一些专业知识的 PPT，多和同事同学们分享？</li>
-<li>…</li>
-</ol>
-
+<h1 id="抽出一个五星角色期望需要多少抽？"><a href="#抽出一个五星角色期望需要多少抽？" class="headerlink" title="抽出一个五星角色期望需要多少抽？"></a>抽出一个五星角色期望需要多少抽？</h1><p>根据官方抽卡规则，抽卡可以认为是重复独立的伯努利实验，角色池的综合出金率为 $P_{角色}$ = 1.600%。<br>即抽出五星角色的抽卡次数 $X_{角色}$ 服从几何分布。即：<br>$$P(X_{角色}=n)=P_{角色}*(1-P_{角色})^{n-1}$$</p>
+<p>根据几何分布的期望公式,$$E=\frac{1}{P_{角色}}=62.5$$ ，即平均抽 $62.5$ 抽可出一个五星角色。</p>
+<h1 id="抽出一个五星武器期望需要多少抽？"><a href="#抽出一个五星武器期望需要多少抽？" class="headerlink" title="抽出一个五星武器期望需要多少抽？"></a>抽出一个五星武器期望需要多少抽？</h1><p>同理，因为武器池的综合出金率为 $P_{武器}$ = 1.85%， 因此, ,$$E=\frac{1}{P_{武器}} \approx 54$$，即平均约 $54$ 抽可出一个五星武器。</p>
+<h1 id="抽出一个五星角色期望需要多少抽？-1"><a href="#抽出一个五星角色期望需要多少抽？-1" class="headerlink" title="抽出一个五星角色期望需要多少抽？"></a>抽出一个五星角色期望需要多少抽？</h1><h1 id="抽出满命五星角色期望需要出多少次金？"><a href="#抽出满命五星角色期望需要出多少次金？" class="headerlink" title="抽出满命五星角色期望需要出多少次金？"></a>抽出满命五星角色期望需要出多少次金？</h1><h1 id="抽出满精武器期望需要出多少金？"><a href="#抽出满精武器期望需要出多少金？" class="headerlink" title="抽出满精武器期望需要出多少金？"></a>抽出满精武器期望需要出多少金？</h1>
     
   </div>
 
@@ -360,10 +278,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/02/23/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/">
+    <a class="show pull-left" href="/2021/08/31/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%912021%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F%E5%A4%8D%E8%B5%9B-Tutorial/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/09/26/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%8E%20T%20%E5%8F%B8%E7%A6%BB%E8%81%8C/">
+    <a class="show pull-right" href="/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -477,7 +395,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'lzyrapx';
     
-    var disqus_url = 'http://lzyrapx.xyz/2020/03/19/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91How-to-be-a-good-Tech-Lead/';
+    var disqus_url = 'http://lzyrapx.xyz/2021/10/16/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91%E5%8E%9F%E7%A5%9E%E6%8A%BD%E5%8D%A1%E6%A6%82%E7%8E%87%E6%9C%9F%E6%9C%9B%E5%88%86%E6%9E%90/';
     
     (function(){
       var dsq = document.createElement('script');
