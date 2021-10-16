@@ -15,13 +15,15 @@
     <meta name="keywords" content="数学," />
   
 
-  <meta name="keywords" content="数学">
+  <meta name="description" content="原神官方抽卡一般规则角色池规则 角色池为单 UP 池。 五星角色祈愿的基础概率为 $0.600$%， 综合概率(含保底) 为 $1.600$%， 最多 $90$ 次祈愿内必定能通过保底获取五星角色。 当祈愿获取到五星角色时，有 $50.000$% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。 如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP">
+<meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【数学】原神抽卡概率期望分析">
 <meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2021&#x2F;10&#x2F;16&#x2F;%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91%E5%8E%9F%E7%A5%9E%E6%8A%BD%E5%8D%A1%E6%A6%82%E7%8E%87%E6%9C%9F%E6%9C%9B%E5%88%86%E6%9E%90&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
+<meta property="og:description" content="原神官方抽卡一般规则角色池规则 角色池为单 UP 池。 五星角色祈愿的基础概率为 $0.600$%， 综合概率(含保底) 为 $1.600$%， 最多 $90$ 次祈愿内必定能通过保底获取五星角色。 当祈愿获取到五星角色时，有 $50.000$% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。 如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2021-10-16T07:41:57.942Z">
+<meta property="og:updated_time" content="2021-10-16T09:26:28.521Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -179,6 +181,11 @@ ga('send', 'pageview');
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原神官方抽卡一般规则"><span class="toc-text">原神官方抽卡一般规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#角色池规则"><span class="toc-text">角色池规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#武器池规则"><span class="toc-text">武器池规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星角色期望需要多少抽？"><span class="toc-text">抽出一个五星角色期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星武器期望需要多少抽？"><span class="toc-text">抽出一个五星武器期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出一个五星角色期望需要多少抽？-1"><span class="toc-text">抽出一个五星角色期望需要多少抽？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出满命五星角色期望需要出多少次金？"><span class="toc-text">抽出满命五星角色期望需要出多少次金？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#抽出满精武器期望需要出多少金？"><span class="toc-text">抽出满精武器期望需要出多少金？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
@@ -202,7 +209,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F/">人生</a>
+    <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
   </span>
 
 
@@ -227,7 +234,63 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      
+      <h1 id="原神官方抽卡一般规则"><a href="#原神官方抽卡一般规则" class="headerlink" title="原神官方抽卡一般规则"></a>原神官方抽卡一般规则</h1><h2 id="角色池规则"><a href="#角色池规则" class="headerlink" title="角色池规则"></a>角色池规则</h2><ul>
+<li>角色池为单 UP 池。</li>
+<li>五星角色祈愿的基础概率为 $0.600$%， 综合概率(含保底) 为 $1.600$%， 最多 $90$ 次祈愿内必定能通过保底获取五星角色。</li>
+<li>当祈愿获取到五星角色时，有 $50.000$% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。</li>
+<li>如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP 角色。(不可能连续两次歪)。</li>
+</ul>
+<h2 id="武器池规则"><a href="#武器池规则" class="headerlink" title="武器池规则"></a>武器池规则</h2><ul>
+<li>武器池为双 UP 池。</li>
+<li>五星武器祈愿的基础概率为 $0.7000$%，综合概率(含保底)为 $1.850$%，最多 $80$ 次 祈愿必定能通过保底获取五星武器。</li>
+<li>当祈愿获取到五星武器时，有 $75.000$% 的概率为本期五星 UP 武器中两个中的一个。如果本次祈愿获取的五星武器非本期五星 UP 武器时，下次祈愿获取的五星武器必定为本期五星 UP 武器。在未通过命定值达到满值获取定轨武器的情况下，当祈愿获取到五星 UP 物体时，每把本期五星 UP 武器的获取概率均等。</li>
+</ul>
+<h1 id="抽出一个五星角色期望需要多少抽？"><a href="#抽出一个五星角色期望需要多少抽？" class="headerlink" title="抽出一个五星角色期望需要多少抽？"></a>抽出一个五星角色期望需要多少抽？</h1><p>根据官方抽卡规则，抽卡可以认为是重复独立的伯努利实验，角色池的综合出金率为 $P_{角色}$ = $1.600$%。<br>即抽出五星角色的抽卡次数 $X_{角色}$ 服从几何分布。即：<br>$$P(X_{角色}=n)=P_{角色}*(1-P_{角色})^{n-1}$$</p>
+<p>根据几何分布的期望公式,</p>
+<p>$$E=\frac{1}{P_{角色}}=62.5$$ </p>
+<p>即期望平均抽 $62.5$ 抽可出一个五星角色。</p>
+<h1 id="抽出一个五星武器期望需要多少抽？"><a href="#抽出一个五星武器期望需要多少抽？" class="headerlink" title="抽出一个五星武器期望需要多少抽？"></a>抽出一个五星武器期望需要多少抽？</h1><p>同理，因为武器池的综合出金率为 $P_{武器}$ = 1.85%， 因此, </p>
+<p>$$E=\frac{1}{P_{武器}} \approx 54$$</p>
+<p>即期望平均抽约 $54$ 抽可出一个五星武器。</p>
+<h1 id="抽出一个五星角色期望需要多少抽？-1"><a href="#抽出一个五星角色期望需要多少抽？-1" class="headerlink" title="抽出一个五星角色期望需要多少抽？"></a>抽出一个五星角色期望需要多少抽？</h1><p>假设氪佬抽出满命后就停止抽卡，则氪佬需要将 UP 角色抽出 $7$ 次，假设抽卡分布如下：</p>
+<p>() 中 () 中 () 中 () 中 () 中 () 中 () 中</p>
+<p>其中：“中”代表抽中 UP 角色，“()”代表可能出现歪的位置，共计 $7$ 个。如果歪了 $n$ 次（必有$n≤7$），则共有 $C_{7}^{n}$  种情况，每一种情况出现的概率为：</p>
+<p>$${0.5}^{n} * 1^{n}*{0.5}^{7-n}＝{0.5}^{7}$$</p>
+<p>其中，第一个 $0.5^n$ 指歪了 $n$ 次，$1^n$ 指歪了之后下一次 $100$％ 出 UP 角色，$0.5^{7-n}$指有 $7$-$n$ 次在没歪的情况下出 UP 角色，因此抽满命过程中歪 $n$ 次出现的概率为:</p>
+<p>$$P(X_{歪}=n)=C_{7}^{n}*{0.5}^{7}$$</p>
+<p>最后得到抽出满命的平均期望出金次数 $E_{满命}$ 为:</p>
+<p>$$E_{满命}=\sum_{n=1}^{7} (7+n) * C_{7}^{n}*{0.5}^{7}=10.5$$</p>
+<p>即期望平均出 $10.5$ 次金才可以将一个 UP 角色抽满命。</p>
+<h1 id="抽出满命五星角色期望需要出多少次金？"><a href="#抽出满命五星角色期望需要出多少次金？" class="headerlink" title="抽出满命五星角色期望需要出多少次金？"></a>抽出满命五星角色期望需要出多少次金？</h1><p>不歪的情况下出目标武器的概率为 $P_{不歪}=0.75％*50％＝37.5％$</p>
+<p>歪一次的概率为 $P_{单歪}＝1-P_{不歪}＝62.5％$。</p>
+<p>因为存在<strong>定轨机制</strong>，还要考虑连续歪两次的概率为：</p>
+<p>$P_{双歪}＝P_{单歪}*P_{单歪}＝39.0625％$</p>
+<p>同样假设氪佬抽满精武器后就停止抽卡，假设抽卡分布情况如下：</p>
+<p>() 中 () 中 () 中 () 中 () 中</p>
+<p>其中“中”表示抽出目标武器，“()“的位置可能是“单歪”、“双歪”或者空（相当于不歪）。</p>
+<p>再假设抽卡过程中单歪次数为 $m$，双歪次数为 $n$（必有$m＋n≤5$），则可能的情况有 $C_{5}^{m+n} * C_{m+n}^{n}$种。</p>
+<p>$C_{5}^{m+n}$ 指从5个“()“位置选择 $m＋n$ 个放置单歪和双歪，$C_{m＋n}^{n}$ 指歪的位置确定后再放置单歪和双歪。</p>
+<p>则每种情况出现的概率为: </p>
+<p>$$P_{单歪}^{m} * P_{双歪}^{n} * {1}^{n} * P_{中}^{5-n}$$</p>
+<p>其中，$P_{单歪}^m$ 指出现 $m$ 次单歪的概率，$P_{双歪}^n$ 指出现 $n$ 次双歪的概率，$1^n$ 指双歪后 $100％$ 出目标武器，$P_{中}^{5-n}$ 指有 $5-n$ 次直接出目标武器）。</p>
+<p>因此，抽满精的过程中单歪 $m$ 次，双歪$n$ 次的概率为:</p>
+<p>$$P(X_{单歪}=m, X_{双歪}=n)=C_{5}^{m+n} * C_{m+n}^{n} * P_{单歪}^m * P_{双歪}^n * 1^n * P_{中}^{5-n}$$</p>
+<p>其中，$m$ 和 $n$ 需要满足约束 $m＋n≤5$ 且 $m，n≥0$，因此可以得到抽卡次数的期望为:</p>
+<p>$$E_{满精}=\sum_{m+n≤5且m,n≥0}{}(5+m+2n) * C_{5}^{m+n} * C_{m+n}^{n} * P_{单歪}^m * P_{双歪}^n * 1^n * P_{中}^{5-n}$$</p>
+<p>在 $m＋n≤5$ 和 $m，n≥0$ 的约束下, $(m，n)$一共有 $35$ 种组合，穷举所有组合并代入上式可以得到:</p>
+<p>$$E_{满精}＝10.078125≈10$$</p>
+<p>即武器池期望大约是出 $10$ 次金才可以将目标武器抽满精。</p>
+<h1 id="抽出满精武器期望需要出多少金？"><a href="#抽出满精武器期望需要出多少金？" class="headerlink" title="抽出满精武器期望需要出多少金？"></a>抽出满精武器期望需要出多少金？</h1><p>综上分析，抽出满命满精角色的平均抽卡次数为：</p>
+<p>$$E_{满命}＊E_{角色}＋E_{满精}*E_{武器}=1201.01≈1201$$</p>
+<p>一单 $648$ rmb 平均能抽 $52$ 次，因此一个满命角色满精武器需要花费:</p>
+<p>$$\frac{648*1201}{52}=14966≈15000 rmb$$</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>期望平均抽 $62.5$ 抽可出一个五星角色。</li>
+<li>期望平均抽 $54$ 抽可出一个五星武器。</li>
+<li>期望平均出 $10.5$ 次金才可以将一个 UP 角色抽满命。</li>
+<li>期望平均出 $10$ 次金才可以将目标武器抽满精。</li>
+</ul>
+
     
   </div>
 
