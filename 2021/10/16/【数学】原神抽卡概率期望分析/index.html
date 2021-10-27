@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="lzyrapx">
 <meta property="og:description" content="原神官方抽卡一般规则角色池规则 角色池为单 UP 池。 五星角色祈愿的基础概率为 $0.600$%， 综合概率(含保底) 为 $1.600$%， 最多 $90$ 次祈愿内必定能通过保底获取五星角色。 当祈愿获取到五星角色时，有 $50.000$% 的概率为本期该池的 UP 角色。(即存在歪了的可能性)。 如果本次祈愿获取的五星角色非本期该池的 UP 角色，下次祈愿获取的五星角色必定为本期五星 UP">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2021-10-16T09:59:37.467Z">
+<meta property="og:updated_time" content="2021-10-16T10:00:42.652Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -269,7 +269,7 @@ ga('send', 'pageview');
 <p>() 中 () 中 () 中 () 中 () 中</p>
 <p>其中“中”表示抽出目标武器，“()“的位置可能是“单歪”、“双歪”或者空（相当于不歪）。</p>
 <p>再假设抽卡过程中单歪次数为 $m$，双歪次数为 $n$（必有$m＋n≤5$），则可能的情况有 $C_{5}^{m+n} * C_{m+n}^{n}$种。</p>
-<p>$C_{5}^{m+n}$ 指从5个“()“位置选择 $m＋n$ 个放置单歪和双歪，$C_{m＋n}^{n}$ 指歪的位置确定后再放置单歪和双歪。</p>
+<p>$C_{5}^{m+n}$ 指从 $5$ 个“()“位置选择 $m＋n$ 个放置单歪和双歪，$C_{m＋n}^{n}$ 指歪的位置确定后再放置单歪和双歪。</p>
 <p>则每种情况出现的概率为: </p>
 <p>$$P_{单歪}^{m} * P_{双歪}^{n} * {1}^{n} * P_{中}^{5-n}$$</p>
 <p>其中，$P_{单歪}^m$ 指出现 $m$ 次单歪的概率，$P_{双歪}^n$ 指出现 $n$ 次双歪的概率，$1^n$ 指双歪后 $100％$ 出目标武器，$P_{中}^{5-n}$ 指有 $5-n$ 次直接出目标武器）。</p>
@@ -499,20 +499,5 @@ ga('send', 'pageview');
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
