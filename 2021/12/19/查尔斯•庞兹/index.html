@@ -7,23 +7,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【算法】如何证明添加最少的边使得有向图强连通？ | lzyrapx</title>
+  <title>查尔斯•庞兹 | lzyrapx</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法," />
+    <meta name="keywords" content="读书," />
   
 
-  <meta name="description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
-<meta name="keywords" content="算法">
+  <meta name="description" content="好几年前就听说了 “庞氏骗局” 这个词，也大概是什么意思。但一直没有了解过 “庞氏骗局” 的始作俑者，查尔斯•庞兹的故事或者传记。前段时间在亚马逊上无意看到这本书，《我是怎么割韭菜的：一个骗子的悔过与自白》，于是就购买了这本书的电子版来阅读一下。最近有空翻了一会。翻译地一般，勉强可以看，读罢。 我觉得撇开诈骗事实不说，庞兹的人生经历堪称传奇的，简单总结就是「In Ponzi We Trust」的人">
+<meta name="keywords" content="读书">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】如何证明添加最少的边使得有向图强连通？">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2020&#x2F;02&#x2F;23&#x2F;%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F&#x2F;index.html">
+<meta property="og:title" content="查尔斯•庞兹">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2021&#x2F;12&#x2F;19&#x2F;%E6%9F%A5%E5%B0%94%E6%96%AF%E2%80%A2%E5%BA%9E%E5%85%B9&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
-<meta property="og:description" content="Problem给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。 Solution先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0">
+<meta property="og:description" content="好几年前就听说了 “庞氏骗局” 这个词，也大概是什么意思。但一直没有了解过 “庞氏骗局” 的始作俑者，查尔斯•庞兹的故事或者传记。前段时间在亚马逊上无意看到这本书，《我是怎么割韭菜的：一个骗子的悔过与自白》，于是就购买了这本书的电子版来阅读一下。最近有空翻了一会。翻译地一般，勉强可以看，读罢。 我觉得撇开诈骗事实不说，庞兹的人生经历堪称传奇的，简单总结就是「In Ponzi We Trust」的人">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2021-01-01T08:56:57.238Z">
+<meta property="og:updated_time" content="2021-12-19T12:06:43.116Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -181,22 +181,17 @@ ga('send', 'pageview');
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof"><span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#First-m-1"><span class="toc-text">First: $m = 1$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-1"><span class="toc-text">Case 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-2"><span class="toc-text">Case 2:</span></a></li></ol></li></ol></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
-   <article id="post-【算法】如何证明添加最少的边使得有向图强连通？" class="article article-type-post" itemprop="blogPost">
+   <article id="post-查尔斯•庞兹" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">【算法】如何证明添加最少的边使得有向图强连通？</h1>
+    <h1 class="post-title">查尔斯•庞兹</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.02.23</span>
+        <span>2021.12.19</span>
       </span>
 
       
@@ -217,7 +212,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.lzyrapx.xyz/2020/02/23/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/#disqus_thread" target="_blank" rel="noopener"></a>
+          <a href="http://www.lzyrapx.xyz/2021/12/19/%E6%9F%A5%E5%B0%94%E6%96%AF%E2%80%A2%E5%BA%9E%E5%85%B9/#disqus_thread" target="_blank" rel="noopener"></a>
         </span>
       
 
@@ -234,19 +229,22 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>给定一个有向图 $G$，问至少添加多少条有向边可以使得 $G$ 强连通。</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>先对 $G$ 求强连通分量，用 tarjan 算法即可。缩点，然后得到一个 DAG。如果最后的 DAG 只有一个节点，那么答案是 0 ，否则答案是 $max(indegree, outdegree)$，$indegree$ 和 $outdegree$ 分别表示入度为 0 的点的总数和出度为 0 的点的总数。</p>
-<h1 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h1><p>显然， $max(indegree, outdegree)$ 肯定是一个下界，因为至少需要这么多边才能完全消除入度为 0 的所有的点或者出度为 0 的所有的点。</p>
-<p>可以用归纳法来构造一组合理的解。 给定任意一个图 $G$，求它的强连通分量并且缩点得到一个 DAG，令这个 DAG 为 $D$。假设 $|D| \ge 2$，否则答案很显然是 0。令 $X$ 和 $Y$ 分别表示 $D$ 中入度和出度为 0 的点集。令 $m = max(|X|, |Y|)$。通过对 $m$ 进行归纳，假设存在一种添加 $m$ 条边的解法让 $G$ 变得强连通。</p>
-<h3 id="First-m-1"><a href="#First-m-1" class="headerlink" title="First: $m = 1$"></a>First: $m = 1$</h3><p>此时，很显然有$|X| = |Y| = 1$。假设 $x$ 和 $y$ 分别是 $X$ 和 $Y$ 的唯一元素，那么只需要添加边 $(y, x)$ 即可。</p>
-<p>当$m \ge 2$的时候，考虑 $2$ 个 case。</p>
-<h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1:"></a>Case 1:</h3><p>存在 $x \in X$, $y \in Y$ 使得 $D$ 不存在从 $x$ 到 $y$ 的路径。这时添加一条边 $(y, x)$。假设添加过边的新图为 $G’$，求它的强连通分支并且缩点得到一个DAG $D’$。可以断定 $D’ = D \cup {(y, x)}$。原因很简单，如果 $D$ 的点集在添加边 $(y, x)$ 后发生了变化，唯一的可能是边 $(y, x)$ 构成了环，这说明有 $x$ 到 $y$ 的路径，矛盾。</p>
-<p>现在考虑新图 $G’$ 和它的 DAG $D’$，与 $D$ 相比，$D’$少了一个入度为 0 的点，也少了一个出度为 0 的点，所以 $m’ = m - 1$。根据归纳假设，需要再递归地添加 $m’ - 1$ 条边，加上 $(y, x)$ 本身，一共 $m$ 条。</p>
-<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2:"></a>Case 2:</h3><p>不存在上述的 $x$ 和 $y$，这意味着在 DAG $D$中所有的 $x \in X$ 都有到所有的 $y \in Y$ 通路。这时可以随意取 $D$ 中出度为 0 的点 $y$ 和入度为 0 的点 $x$，添加边 $(y, x)$。如此重复 $m$ 次即可。需要注意的是，如果某个时候不存在出度为 0 的点，那么就在 $Y$ 中任取一点，如果不存在入度为 0 的点，就在 $X$ 中任取一点。一个合理的推论是，当上述操作完成后，有以下两个性质：</p>
-<p>i. 对于 $X$ 中的任何一点 $x$，存在某个 $y \in Y$ 使得有边 $(y, x)$。</p>
-<p>ii. 对于 $Y$ 中的任何一点 $y$，存在某个 $x \in X$ 使得有变 $(y, x)$。</p>
-<p>接着，需要证明，为什么这样随意的添加边之后 $D$ 会变得强连通（因此 $G$ 也就强连通了）。</p>
-<p>实际上，任取 $D$ 中的两个点 $a$ 和 $b$，首先一定存在某个 $y_1 \in Y$（$y_1$ 可能是 $a$ 本身），使得有 $a$ 到 $y_1$ 的路径。其次，根据性质(ii)，存在某个 $x_1 \in X$ 使得有边 $(y_1, x_1)$。再看点 $b$，容易知道一定存在某个 $x_2 \in X$ 使得 $D$ 中存在 $x_2$ 到 $b$ 的路径($x_2$可能是 $b$ 本身)。再根据性质(i)，存在某个 $y_2 \in Y$ 使得有边 $(y_2, x_2)$。最后，根据一开始的假设，$X$ 中的每个点都有到 $Y$ 中每个点的路径，即存在 $x_1$ 到 $y_2$ 的路径，于是找到了一条通路 $a \rightsquigarrow y_1 \rightarrow x_1 \rightsquigarrow y_2 \rightarrow x_2 \rightsquigarrow b$。</p>
+      <p>好几年前就听说了 “庞氏骗局” 这个词，也大概是什么意思。但一直没有了解过 “庞氏骗局” 的始作俑者，<strong>查尔斯•庞兹</strong>的故事或者传记。前段时间在亚马逊上无意看到这本书，《我是怎么割韭菜的：一个骗子的悔过与自白》，于是就购买了这本书的电子版来阅读一下。最近有空翻了一会。翻译地一般，勉强可以看，读罢。</p>
+<p>我觉得撇开诈骗事实不说，庞兹的人生经历堪称传奇的，简单总结就是「In Ponzi We Trust」的人类社会实验。</p>
+<p>庞兹，1903 年从意大利移民到美国，在 1919 年去了美国波士顿，一心只想找机会赚钱，<strong>当时 37 岁</strong>。</p>
+<p>没错，是真的 37 岁。</p>
+<p>他发现当时的国际邮票和汇率有套利机会，简单说就是把手里的美金换成法郎，然后将法郎换成邮票，按一定折扣卖掉，最终换回美金。因为有汇差，所以能赚到一点钱。刨去汇款成本和汇率波动，大概能做到 10 个点的收益。</p>
+<p>但，这当然不是稳赚不赔，当时一战刚结束没多久，各国之间汇率不稳定，搬砖这种事搞不好就砸手里。但庞兹胆子很大，他本来就没想单纯真的靠搬砖赚钱。因为庞兹很清楚，自己只是缺一个标的物，只要他能说服投资者相信他的逻辑，那么一切就可以运作起来。邮票汇率这种明面上看起来有波动，有利润，背地里却完全可以暗箱操作的对象，庞兹求之不得。</p>
+<p>所以他开始大量卖自己的理财产品，投资期限 90 天，收益率 50%，后来还继续往上调，45 天给 50% 的收益，高到令人咋舌。并且庞兹还开班培养了一大堆理财顾问，拉到人头就给 10% 提成，这些人基本上都先从身边人下手。这段骚操作，堪称现如今国内保险行业的祖师爷套路。</p>
+<p>这可是在 20 世纪初啊，一个连手机、电脑都没有的时代。如今的什么增长黑客啦，拉人返佣啦，中介费啦，邀新提现啦，这些乱七八糟的套路和手段，人家  100 年前就玩过了。</p>
+<p>波士顿人民自然异常激动，在一年左右的时间里，差不多有四万多人参与，总共给庞兹打了约 1500 万美金。</p>
+<p>庞兹名下有超过 20 个房间的豪华别墅，生活奢靡到什么程度呢？</p>
+<p>这么说吧，他的镶黄金的拐杖不下数十根，给情妇买了大量珠宝首饰，连自己的烟斗都嵌著钻石，就是这种程度。</p>
+<p>这些钱折算到现在，也是个天文数字。因为美元在这 100 多年间总供应量翻了 1900 多倍。庞兹的生意好到连当地 3/4 的警察都买了他的理财。</p>
+<p>骗局当然是无法持续的。1920 年几个波士顿市民报案维权，跟市政府说自己投资受骗，两天后，庞兹便宣告破产，就地自首，大厦倒塌仅一个瞬念。</p>
+<p>庞兹的案情严重，当地法官判他入狱 9 年。结果两年后他就保释外出。移居到佛罗里达州后，他旧戏重演，结果被判了更久。1934 年庞兹终于获释，被美国政府遣送回意大利。回国后他竟然又开始诈骗，对象还是位高权重的墨索里尼，但最终没能得逞。</p>
+<p>最后庞兹来到巴西，在一家航空公司工作，二战中惨遭裁员，1949 年在巴西里约热内卢的一个善堂因病去世，死时身无分文。</p>
+<p>令人唏嘘。</p>
 
     
   </div>
@@ -277,10 +275,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/01/07/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E5%86%8D%E7%9C%8B%E7%BD%97%E6%8C%AF%E5%AE%87%E7%9A%84%E8%B7%A8%E5%B9%B4%E6%BC%94%E8%AE%B2%E3%80%8A%E6%97%B6%E9%97%B4%E7%9A%84%E6%9C%8B%E5%8F%8B%E3%80%8B/">
+    <a class="show pull-left" href="/2021/10/16/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91%E5%8E%9F%E7%A5%9E%E6%8A%BD%E5%8D%A1%E6%A6%82%E7%8E%87%E6%9C%9F%E6%9C%9B%E5%88%86%E6%9E%90/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/19/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91How-to-be-a-good-Tech-Lead/">
+    <a class="show pull-right" href="/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -394,7 +392,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'lzyrapx';
     
-    var disqus_url = 'http://lzyrapx.xyz/2020/02/23/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E6%B7%BB%E5%8A%A0%E6%9C%80%E5%B0%91%E7%9A%84%E8%BE%B9%E4%BD%BF%E5%BE%97%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A%EF%BC%9F/';
+    var disqus_url = 'http://lzyrapx.xyz/2021/12/19/%E6%9F%A5%E5%B0%94%E6%96%AF%E2%80%A2%E5%BA%9E%E5%85%B9/';
     
     (function(){
       var dsq = document.createElement('script');

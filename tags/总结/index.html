@@ -229,6 +229,11 @@ ga('send', 'pageview');
         <span class="tag-size">( 1 )</span>
       </a>
     
+      <a class="tag-item" href="#读书">
+        <span class="tag-name">读书</span>
+        <span class="tag-size">( 1 )</span>
+      </a>
+    
       <a class="tag-item" href="#随笔">
         <span class="tag-name">随笔</span>
         <span class="tag-size">( 9 )</span>
@@ -388,7 +393,25 @@ ga('send', 'pageview');
 
 
 </li>
-<li id="随笔" class="item-category-name item-title item-title-0">
+<li id="读书" class="item-category-name item-title item-title-0">
+  <!--
+    <a href="" class="text-year">
+   -->
+    读书
+    <span class="category-count">( 1 )</span>
+  <!--
+  </a>
+   -->
+</li>
+<li class="item-post item">
+  <span class="post-date">12-19</span>
+
+  
+  <a class="post-title" href="/2021/12/19/%E6%9F%A5%E5%B0%94%E6%96%AF%E2%80%A2%E5%BA%9E%E5%85%B9/">查尔斯•庞兹</a>
+
+
+</li>
+<li id="随笔" class="item-category-name item-title item-title-1">
   <!--
     <a href="" class="text-year">
    -->
@@ -470,7 +493,7 @@ ga('send', 'pageview');
 
 
 </li>
-<li id="音乐" class="item-category-name item-title item-title-1">
+<li id="音乐" class="item-category-name item-title item-title-2">
   <!--
     <a href="" class="text-year">
    -->
@@ -617,5 +640,20 @@ ga('send', 'pageview');
   }
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
