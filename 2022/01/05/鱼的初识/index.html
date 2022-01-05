@@ -7,23 +7,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【数学】Project-Euler 解説 | lzyrapx</title>
+  <title>鱼的初识 | lzyrapx</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="数学," />
+    <meta name="keywords" content="记录," />
   
 
-  <meta name="description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
-<meta name="keywords" content="数学">
+  <meta name="description" content="不喜欢脾气暴躁，性格要温和。 约会一定要提前约定，不能临时约。 不喜欢炫富和炫耀装杯。 需要有自己的空间和独处时间。 朴素大方和充满意境。 喜欢自由和浪漫。 貌似容易丢三落四，需要帮忙注意。">
+<meta name="keywords" content="记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【数学】Project-Euler 解説">
-<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2025&#x2F;01&#x2F;01&#x2F;%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC&#x2F;index.html">
+<meta property="og:title" content="鱼的初识">
+<meta property="og:url" content="http:&#x2F;&#x2F;lzyrapx.xyz&#x2F;2022&#x2F;01&#x2F;05&#x2F;%E9%B1%BC%E7%9A%84%E5%88%9D%E8%AF%86&#x2F;index.html">
 <meta property="og:site_name" content="lzyrapx">
-<meta property="og:description" content="p709: O(n^2) dp, 比较容易想到。  p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。  p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 Light Out 这个网站…可能还需要理解一些概念…  p706: 四维 dp。  p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequen">
+<meta property="og:description" content="不喜欢脾气暴躁，性格要温和。 约会一定要提前约定，不能临时约。 不喜欢炫富和炫耀装杯。 需要有自己的空间和独处时间。 朴素大方和充满意境。 喜欢自由和浪漫。 貌似容易丢三落四，需要帮忙注意。">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2021-01-01T08:57:32.235Z">
+<meta property="og:updated_time" content="2022-01-05T06:01:19.755Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -184,14 +184,14 @@ ga('send', 'pageview');
 
 
 <div class="content content-post CENTER">
-   <article id="post-【数学】Project-Euler 解説" class="article article-type-post" itemprop="blogPost">
+   <article id="post-鱼的初识" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">【数学】Project-Euler 解説</h1>
+    <h1 class="post-title">鱼的初识</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2025.01.01</span>
+        <span>2022.01.05</span>
       </span>
 
       
@@ -204,7 +204,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F/">人生</a>
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
   </span>
 
 
@@ -212,7 +212,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.lzyrapx.xyz/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/#disqus_thread" target="_blank" rel="noopener"></a>
+          <a href="http://www.lzyrapx.xyz/2022/01/05/%E9%B1%BC%E7%9A%84%E5%88%9D%E8%AF%86/#disqus_thread" target="_blank" rel="noopener"></a>
         </span>
       
 
@@ -230,72 +230,13 @@ ga('send', 'pageview');
   <div class="article-content">
     
       <ul>
-<li><p>p709: O(n^2) dp, 比较容易想到。</p>
-</li>
-<li><p>p708: 求一类积性函数的前缀和，有空尝试一下写 Min_25 筛。</p>
-</li>
-<li><p>p707: 看了一会没啥思路…然后搜了大半小时 paper 和资料，搜到了 <a href="https://www.win.tue.nl/~aeb/ca/madness/madrect.html" target="_blank" rel="noopener">Light Out</a> 这个网站…可能还需要理解一些概念…</p>
-</li>
-<li><p>p706: 四维 dp。</p>
-</li>
-<li><p>p705: 一开始理解错题了…inversion count 显然就是计算逆序对，divided sequence 就是序列中每个数字的因子数乘积。预处理每对数字对 inversion count 的贡献，然后暴力所有质数并记录数字的频率，用乘法原理统计答案即可。</p>
-</li>
-<li><p>p704: 和 Kummer’s theorem 有关…</p>
-</li>
-<li><p>p703: 树形 dp，计算独立集。</p>
-</li>
-<li><p>p702: 建坐标系，发现规律，二的幂次相关，range-counting 类问题。$O(nlogn)$。可以做到 $O(logn * logn)$…这可太难了…</p>
-</li>
-<li><p>p547: 求带洞的正方形中任意两点间距离的期望，从 wuhang 在 p695 的 post 里学了一下拟蒙特卡罗(quasi-Monte Carlo)然后做的…</p>
-</li>
-<li><p>p539: 找规律。$P(2k)=P(2k+1)=2k-2P(k)+2$, $S(2k)=2k^2+4k-1-2P(k)-4S(k-1)$, $S(2k+1)=2k^2+6k+1-4S(k)$。</p>
-</li>
-<li><p>p487: 多项式及其求和。其实就是伯努利多项式。然后看到 Min_25 将它推广了…搞了个任意模数 NTT….学不来…  </p>
-</li>
-<li><p>p479: 韦达定理…等比数列求和…</p>
-</li>
-<li><p>p476: Malfatti circles, 贪心，只有一种放法可以使得面积最大，但我不会证明…不过有 paper 证明了…</p>
-</li>
-<li><p>p475: dp….看到可以将题目转化为图的计数的神奇做法…</p>
-</li>
-<li><p>p442: 二分 + AC 自动机上DP…</p>
-</li>
-<li><p>p441: 莫比乌斯反演, 那个求和只要差分一下就变成调和级数了。 $O(nlogn)$。可以做到 $O(n^{2/3} (\log n)^{1/3})$。</p>
-</li>
-<li><p>p430: 第 $i$ 个盘子没有被翻转的概率是 $p = \frac{(i - 1)^2 + (N - i)^2}{N^2}$，$prob(k)$ 表示在 $k$ 轮后白面向上的盘子数目的概率。$prob(k) = prob(k - 1) * p + (1 - prob(k - 1)) * (1 - p)$ =&gt; $prob(k) = \frac{1 + (2q - 1)^k}{2}$，显然，计算 $(2q - 1)^m$ 时，让 $(2q - 1)^m$ 足够小即可。那么答案就是 $\frac{n}{2} + \sum_{k=1}^n {prob(k)}$。</p>
-</li>
-<li><p>p417: 可以发现，$L(k) = L(k * 2), L(k) = L(k * 5)$, 其中，$k \mod 2 = 0$ or $k \mod 5 = 0$。 $L(k) = x$, 满足最小正整数 $x$, $10^x \mod k = 1$ &amp;&amp; $phi(k) \mod L(k) = 0$。时间复杂度：$O(nlog^2 n)$。</p>
-</li>
-<li><p>p343: 可以发现，$f(k) = largest\_prime\_factor(k+1)-1$, $k^3 + 1 = (k + 1) * (k^2 - k + 1)$, $f(k^3) = largest\_prime\_factor(k^3+1)-1$ =&gt; $largest\_prime\_factor((k + 1) * (k^2 - k + 1))-1$ =&gt; $max(largest\_prime\_factor(k + 1), (k^2 - k + 1)) - 1$。</p>
-</li>
-<li><p>p333: dp。$dp[i][j]$ 表示对于 $i$ 可以满足 $i = \sum_{}{2^x3^y}$ 的 partition 的个数，其中， $y &lt;= j$。所以 $j$ 的上限是 $log_3{1000000}$。</p>
-</li>
-<li><p>p317: 物理题. 考虑两种最极端的情况: (1) 垂直向上射出, 可以算出一个最高点。 (2) 水平射出, 可以算出一个最远点。连接这两个点就是一条抛物线，求这个抛物线的包络线就可以了。需要花时间 re-learn 一下以前简单的物理公式，然后直接推导出公式即可。抛物线体的体积计算：<a href="https://mathworld.wolfram.com/Paraboloid.html" target="_blank" rel="noopener">Paraboloid</a>。高中物理里的斜抛物体最高上升高度 $h=\frac{v^2}{2g}$。</p>
-</li>
-<li><p>p303: 简单的 bfs。用 python 写会很慢(用 list 实现 queue)，加了剪枝才快，不加剪枝很慢，换成 C++ 不加剪枝都很快…因此建议用 C++ 写，但是 $f(9999)$ 爆 long long 了。这个甚至可以直接 OEIS。</p>
-</li>
-<li><p>p297: 找规律，<a href="http://oeis.org/A007895" target="_blank" rel="noopener">A007895</a>。可以发现一些递归结构。需要记忆化。$z(m) = z(f(n)) + z(m-f(n)) + m-f(n)$, $f(n)$是小于 $n$ 中最大的 fibonacci number。</p>
-</li>
-<li><p>p288: 直接根据阶乘的中质因子 $p$ 的个数的公式计算。$p^n!$ 的 质因子 $p$ 的个数是 $\frac{p^n - 1}{p - 1}$</p>
-</li>
-<li><p>p226: Simpson 积分…</p>
-</li>
-<li><p>p200: Miller-Rabin…暴力…</p>
-</li>
-<li><p>p178: 四维dp。</p>
-</li>
-<li><p>p162: 容斥原理直接手算….发现 MuthuVeerappanR 这人就喜欢啥题都用生成函数去做…还有人将 16 个数字推广到 n 个数字的…</p>
-</li>
-<li><p>p160: 找出 $10^{12}!$ 的最后非零五项。中国剩余定理 或者 利用 last5Digit($n$) = last5Digit($n * 5^x$) 即，last5Digit($10^{12}$) = last5Digit($2560000$) 或者 wolframalpha。</p>
-</li>
-<li><p>p159: dp。递推式: $mdrs(n) = max(drs(n), mdrs(a) + mdrs(b))$, $a * b == n$。</p>
-</li>
-<li><p>p158: 对于每个 $n$, 答案就是 <a href="https://en.wikipedia.org/wiki/Eulerian_number" target="_blank" rel="noopener">Eulerian_number</a>, $A(n, 1) = 2^n-n-1$, 因此, $p(n)=(2^{n}-n-1)\binom{26}{n}$</p>
-</li>
-<li><p>p157: 简单推导变换后，暴力枚举+分解质因数</p>
-</li>
-<li><p>p156: $f(n, d)$ 的数位dp + 剪枝</p>
-</li>
+<li>不喜欢脾气暴躁，性格要温和。</li>
+<li>约会一定要提前约定，不能临时约。</li>
+<li>不喜欢炫富和炫耀装杯。</li>
+<li>需要有自己的空间和独处时间。</li>
+<li>朴素大方和充满意境。</li>
+<li>喜欢自由和浪漫。</li>
+<li>貌似容易丢三落四，需要帮忙注意。</li>
 </ul>
 
     
@@ -327,10 +268,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2022/01/05/%E9%B1%BC%E7%9A%84%E5%88%9D%E8%AF%86/">
+    <a class="show pull-left" href="/2021/12/19/%E6%9F%A5%E5%B0%94%E6%96%AF%E2%80%A2%E5%BA%9E%E5%85%B9/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="hide pull-right" href="/">
+    <a class="show pull-right" href="/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -444,7 +385,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'lzyrapx';
     
-    var disqus_url = 'http://lzyrapx.xyz/2025/01/01/%E3%80%90%E6%95%B0%E5%AD%A6%E3%80%91Project-Euler%20%E8%A7%A3%E8%AA%AC/';
+    var disqus_url = 'http://lzyrapx.xyz/2022/01/05/%E9%B1%BC%E7%9A%84%E5%88%9D%E8%AF%86/';
     
     (function(){
       var dsq = document.createElement('script');
